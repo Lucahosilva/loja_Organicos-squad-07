@@ -1,3 +1,5 @@
-<h1>Primeiro projeto do programa Div </h1>
+# loja_Organicos-squad-07
 
-<p> A proposta é fazer um programa em linha de comando  de uma pequena coperativa </p>
+Esta é a resolução do exercícío proposta pela Gama Academy:
+
+DESAFIO EM GRUPO: MAGALU DEV
