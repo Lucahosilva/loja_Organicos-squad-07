@@ -20,8 +20,55 @@ menu = """
 
 print(boasvindas)
 
+catalogo = {}
 user = input("Digite seu nome: ")
+produto = ''
+valor = ''
+
 print(f'Bem vindo {user}!!!\n\n{menu}')
 
 #Chamar outras funções do menu 2
 opcoes = 0
+
+
+
+def cadastro():
+    produto = input(''' 
+|--------------------------------------------------------------------------------------------------|                
+                                                                                                  
+                Digite o nome do Produto ou \'x\' para sair:                                          
+                                                                                                 
+|--------------------------------------------------------------------------------------------------|
+
+Produto : ''')
+
+    valor = input(f'''
+|--------------------------------------------------------------------------------------------------|                
+            Qual o valor de {produto}?                                                            
+            Substitua a Vírgula por '.' (ponto)                                                   
+            (ou \'x\' para cancelar) :                                                            
+|--------------------------------------------------------------------------------------------------|
+
+Qual o valor de {produto}? :  ''')
+
+    if produto.lower() == 'x':
+        print('Voltando ao menu principal')
+        produto = 'x'
+    elif produto.isalpha() == False:
+        print('Entrada Inválida')
+    else:
+        if valor.lower() == 'x':
+            print('Voltando ao menu principal')
+            del catalogo[produto]
+            produto = 'x'
+            #código para voltar para o menu
+        elif produto.isdigit() == False:
+            print('Entrada Inválida')
+        else:
+            catalogo[(produto.lower()).capitalize] = float(valor)
+            produto = 'x'
+
+while produto != 'x':
+    cadastro()
+
+    
