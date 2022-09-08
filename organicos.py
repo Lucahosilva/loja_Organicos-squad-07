@@ -1,3 +1,6 @@
+from curses.ascii import isdigit
+
+
 boasvindas = """
 |------------------------------------------------------------------------------------------------------------|
 |                                                                                                            |
@@ -33,40 +36,73 @@ opcoes = 0
 
 
 def cadastro():
-    produto = input(''' 
- |--------------------------------------------------------------------------------------------------|                
-                                                                                                  
-                Digite o nome do Produto ou \'x\' para sair:                                          
-                                                                                                 
- |--------------------------------------------------------------------------------------------------|
+    global produto
+    global valor
+    global catalogo
 
- Produto : ''')
-    if produto.lower() == 'x':
+    print('|--------------------------------------------------------------------------------------------------|')
+    print('''                                                                                                                 
+                Digite o nome do Produto ou \'x\' para sair: 
+                ''')
+    print('|--------------------------------------------------------------------------------------------------|')
+    print('')
+    produto= input('Nome do Produto: ')
+
+    if produto.lower() == "x":
         print('Voltando ao menu principal')
         produto = 'x'
     elif produto.isalpha() == False:
         print('Entrada Inválida')
     else:
-        valor = input(f'''
- |--------------------------------------------------------------------------------------------------|                
-            Qual o valor de {produto}?                                                            
-            Substitua a Vírgula por '.' (ponto)                s                                   
-            (ou \'x\' para cancelar) :                                                            
- |--------------------------------------------------------------------------------------------------|
+        while type(valor) != float:
+            print('|--------------------------------------------------------------------------------------------------|')
+            print(f'''  
+                Qual o valor de {produto}?                                                            
+                Substitua a Vírgula por '.' (ponto)                                                   
+                (ou \'x\' para cancelar) : 
+                ''')                                                         
+            print('|--------------------------------------------------------------------------------------------------|',end='\n')
+            print('')
 
- Qual o valor de {produto}? :  ''')
-        if valor.lower() == 'x':
-            print('Voltando ao menu principal')
-            del catalogo[produto]
-            produto = 'x'
-            #código para voltar para o menu
-        elif produto.isdigit() == False:
+            valor = input(f'Qual o valor de {produto}? : ')
+
+            if valor.lower() == 'x':
+                print('Voltando ao menu principal')
+                valor = float(0)
+                produto = 'x'
+            elif valor.replace(".", "", 1).isdigit() == False:
+                print('Entrada Inválida')
+            else:
+                valor = round(float(valor),2)
+                catalogo[(produto.lower()).capitalize()] = valor
+                produto = 'x'
+    print('|--------------------------------------------------------------------------------------------------|')
+    print('''   
+                Opções-
+
+                1- Cadastrar outro Produto
+                2- Voltar ao menu anterior
+                ''')
+    print('|--------------------------------------------------------------------------------------------------|')
+    opcao_cadastro = input('')
+    if opcao_cadastro.isdigit() == False:
             print('Entrada Inválida')
-        else:
-            catalogo[(produto.lower()).capitalize] = float(valor)
-            produto = 'x'
+    elif int(opcao_cadastro) == 1:
+        produto = ''
+        valor = ''
+    elif int(opcao_cadastro) == 2:
+        valor = ''
+        produto = 'x'
+    else:
+        print('Entrada Inválida')
+        produto = ''
+        valor = ''
+    
+        
 
 while produto != 'x':
     cadastro()
+
+print(catalogo)
 
     
