@@ -1,0 +1,1 @@
+# loja_Organicos-squad-07
