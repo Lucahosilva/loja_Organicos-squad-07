@@ -25,4 +25,3 @@ print(f'Bem vindo {user}!!!\n\n{menu}')
 
 #Chamar outras funções do menu 2
 opcoes = 0
-while opcoes != 0 , 1, 2, 3
