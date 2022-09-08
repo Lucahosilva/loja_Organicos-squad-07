@@ -24,4 +24,6 @@ user = input("Digite seu nome: ")
 print(f'Bem vindo {user}!!!\n\n{menu}')
 
 #Chamar outras funções do menu 2
-opcoes = 0
+
+def relatorio():
+    fo
