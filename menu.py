@@ -1,5 +1,5 @@
-your_name=input("Qual é o seu nome? ")
-print("\n Prazer em lhe conhecer {}".format(your_name.capitalize()))
+# your_name=input("Qual é o seu nome? ")
+#print("\n Prazer em lhe conhecer {}".format(your_name.capitalize()))
 
 
 def menu_funcs():
@@ -45,6 +45,16 @@ elif first_choice == "2":
 			
 		""")
 	menu_vendas()
+elif first_choice == "3":
+    def relatorios():
+
+        print("""
+        
+        Lacunas a preencher
+        Relatórios
+        
+        """)
+    relatorios()
 
 	
     
