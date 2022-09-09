@@ -2,10 +2,14 @@ carrinho = []
 valorCarrinho = []
 valorTotal = []
 catalogo = {"graos" : 10.00 , "feijão": 20 , "arroz" : 45.50} # trocar pelo dicionario do cadastro de itens
-final = "S" #joga o programa para dentro do laço do carrinho
+fecha = "S" #joga o programa para dentro do laço do carrinho
 
-while final != "N":
-    print(f"Produtos disponiveis: \n{catalogo}" , "\n")
+while fecha != "N":
+
+    for i in  catalogo.keys() :
+        print(f"{i}  {catalogo[i]}")      
+
+
     itemadd = (input("por favor digite o nome do produto a ser adicionado ?"))
 
     while not itemadd in catalogo: #verifica se o produto está cadastrado.
@@ -14,9 +18,9 @@ while final != "N":
 
     carrinho.append(itemadd)
     valorCarrinho.append(catalogo[itemadd])
-    print ("carrinho atualizado: \n {}".format(carrinho))
+    print ("carrinho atualizado: \n{}\n".format(carrinho))
     
-    final = str(input("deseja adicionar mais intens? (S/N)")).upper()
+    fecha = str(input("deseja adicionar mais intens? (S/N): ")).upper()
 
 
 valorTotal = float(sum(valorCarrinho))
