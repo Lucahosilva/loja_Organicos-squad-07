@@ -22,7 +22,7 @@ print_menu = """
 	|             Cadastro     -  1                                                                    |
 	|             Vendas       -  2                                                                    |
 	|             Relatórios   -  3                                                                    |
-	|             sair         - 'S'                                                                   |
+	|             Sair         -  S                                                                    |
 	|--------------------------------------------------------------------------------------------------|
 	"""
 catalogo = { }
@@ -66,6 +66,9 @@ def menu_funcs(itens = []):
 		elif first_choice == "3":
 			os.system('cls')
 			Menu_relatorio()
+		elif first_choice == "4":
+			os.system('cls')
+			cadastro.deletar_item_catalago()
 
 		else:
 			os.system('cls')

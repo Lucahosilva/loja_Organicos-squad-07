@@ -24,7 +24,8 @@ print_menu =f'''
     |                                    Opções.                                                       |
     |                                    1- Cadastrar outro Produto                                    | 
     |                                    2- Ver catalogo de produto                                    |
-    |                                    3- Voltar ao menu anterior                                    |
+    |                                    3- Deletar produto
+    |                                    4- Voltar ao menu anterior                                    |
     |--------------------------------------------------------------------------------------------------|'''
 
 print_prod ='''
@@ -116,6 +117,12 @@ def catalogo_prod():
         print('Tecla invalida!!!')
         time.sleep(3)
         catalogo_prod()
+
+def deletar_item_catalago():
+    global catalogo
+    print('|-------------------------------------------------------------------------------|')
+    apagar = str(input('Qual catalago gostaria de deletar: '))
+    catalogo.pop(deletar_item_catalago, None)
     
 def enviar_catalogo():
     global catalogo
