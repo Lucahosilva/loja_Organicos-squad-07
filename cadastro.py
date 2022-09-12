@@ -54,7 +54,7 @@ def cadastro():
     print(print_cad)
     produto= input('\tNome do Produto: ')
 
-    if produto.isalpha() == False and len(produto) < 2 :
+    if produto.isalpha() == False or len(produto) <= 2 :
         print('Entrada Inválida')
         time.sleep(3)
         cadastro()
