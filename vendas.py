@@ -62,7 +62,7 @@ def Vendas(itens):
         for i in range(len(carrinho)):
             print(f"""
         Item: {carrinho[i][0]}       """,end='')
-            #print ("carrinho atualizado: \n{}\n".format(carrinho))
+        
         total = 0
         for i in range(len(carrinho)):
             total += carrinho[i][1]
@@ -76,5 +76,15 @@ def Vendas(itens):
 
 def Deletar():
     print('Deletar')
+
+    print(carrinho)
+
+    itemDelete = input=("Favor informe qual ID deseja deletar: ")
+    while not itemDelete in carrinho:
+        print("produto não encontrado no carrinho ")
+        itemDelete = input=("Favor informe qual ID deseja deletar: ")
+    carrinho.remove([itemDelete])
+
+
     Print_catalogo()
 
