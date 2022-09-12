@@ -57,7 +57,7 @@ def Vendas(itens):
             print("produto não cadastrado")
             itemadd = (input("por favor digite o nome do produto a ser adicionado: "))
         carrinho.append([itemadd, catalogo[itemadd] ])
-            #valorCarrinho.append(catalogo[itemadd])
+          
         print(print_addCar, end='')
         for i in range(len(carrinho)):
             print(f"""
@@ -79,11 +79,22 @@ def Deletar():
 
     print(carrinho)
 
-    itemDelete = input=("Favor informe qual ID deseja deletar: ")
+    itemDelete = int(input("Favor informe qual ID deseja deletar: "))
     while not itemDelete in carrinho:
-        print("produto não encontrado no carrinho ")
-        itemDelete = input=("Favor informe qual ID deseja deletar: ")
+        print("produto não encontrado no carrinho ") #verifica se o item está no carrinho
+        itemDelete = input ("Favor informe qual ID deseja deletar: ")
     carrinho.remove([itemDelete])
+
+    for i in range(len(carrinho)):
+            print(f"""
+        Item: {carrinho[i][0]}       """,end='')
+        
+    total = 0
+
+    for i in range(len(carrinho)):
+         total += carrinho[i][1]
+    print(f"""
+        \n        Total        R$: {total:.2f}""", end='')
 
 
     Print_catalogo()
