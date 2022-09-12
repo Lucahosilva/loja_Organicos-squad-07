@@ -1,57 +1,90 @@
+
+import os
+import time
+import menu
+
+print_addCar = """
+    |----------------------------|
+    |     Itens no carrinh       |
+    |----------------------------|
+"""
+print_carr ='''
+    |--------------------------------------------------------------------------------------------------|
+    |                                    Total de produtos comprados                                   |
+    |--------------------------------------------------------------------------------------------------|
+    |         Produtos                                                     Preço                       |
+    |                                                                                                  |'''
+
+print_prod ='''
+    |--------------------------------------------------------------------------------------------------|
+    |                                      Produtos cadastrados                                        |
+    |--------------------------------------------------------------------------------------------------|
+    |         Produtos                                                     Preço                       |
+    |                                                                                                  |'''
+
+print_fim =  """
+    |--------------------------------------------------------------------------------------------------|
+"""
+#Variaveis--------------
+catalogo = {}
 carrinho = []
-valorCarrinho = []
-valorTotal = []
-catalogo = {"graos" : 10.00 , "feijão": 20.00 , "arroz" : 45.50} # trocar pelo dicionario do cadastro de itens
-fecha = "S" #joga o programa para dentro do laço do carrinho
+total = 0
 
-print('''
-    Bem vindo ao menu de vendas 
-    
-    Produtos disponiveis: 
+def Print_catalogo():
+    global catalogo
+    os.system('cls')
+    print(print_prod, end='')
+    for i in  catalogo.keys():
+        print(f"""
+    |         {i:<20s}.  .  .  .  .  .  .  .  .  .  .  .  .  . R$: {str(catalogo[i]):<6s}                  |""", end=''
+        )
+    print(print_fim)     
 
-    ''')
+def Vendas(itens):
+    global catalogo
+    global carrinho
+    catalogo = itens
+    global total
+    fecha = "S"
 
-while fecha != "N":
-    for i in  catalogo.keys() :
-        print(f"\n{i}  {catalogo[i]} \n")   
-
-    
-    itemadd = (input("por favor digite o nome do produto a ser adicionado ? "))
-
-    while not itemadd in catalogo: #verifica se o produto está cadastrado.
-        print("produto não cadastrado")
-        itemadd = (input("por favor digite o nome do produto a ser adicionado ?"))
-
-    carrinho.append(itemadd)
-    valorCarrinho.append(catalogo[itemadd])
-    
-    print ("carrinho atualizado: \n{}\n".format(carrinho))
-    
-    fecha = str(input("deseja adicionar mais intens? (S/N): ")).upper()
-
-    while not fecha in ("S" , "N") : #verifica se o o usuario digitou certo a opção de checkout
-        print("opção invalida")
-        fecha = str(input("deseja adicionar mais intens? (S/N): ")).upper()
-    
-    #da linha 33 a 42 função de retirar itens do carrinho ainda em contrução
-'''retirar = str(input("Deseja retirar algum item? (S/N) ")).upper()
-
-while retirar != "N" :
-
-        itemdel = str(input("Digite o nome do item a retirar "))
-        carrinho.pop(carrinho.index(itemdel))
-        valorCarrinho.pop(catalogo[itemdel])
-        print ("carrinho atualizado: \n{}\n".format(carrinho))
-        retirar = str(input("Deseja retirar algum item? (S/N) ")).upper()
-print ("carrinho atualizado: \n{}\n".format(carrinho))'''
-
+    while fecha != "N":
+        os.system('cls')
+        Print_catalogo()
+        itemadd = (input("por favor digite o nome do produto a ser adicionado: "))
+        while not itemadd in catalogo: #verifica se o produto está cadastrado.
+            os.system('cls')
+            Print_catalogo()
+            print("produto não cadastrado")
+            itemadd = (input("por favor digite o nome do produto a ser adicionado: "))
+        carrinho.append([itemadd, catalogo[itemadd] ])
+            #valorCarrinho.append(catalogo[itemadd])
+        print(print_addCar, end='')
+        for i in range(len(carrinho)):
+            print(f"""
+        Item: {carrinho[i][0]}       """,end='')
         
-valorTotal = float(sum(valorCarrinho))
+        total = 0
+        for i in range(len(carrinho)):
+            total += carrinho[i][1]
+        print(f"""
+        \n        Total        R$: {total:.2f}""", end=''
+    )
+            
+        fecha = str(input("\n\ndeseja adicionar mais intens? (S/N): ")).upper()
+        #return carrinho
+    menu.menu_funcs(carrinho)
 
-print("\n Resumo \n")
-for i in carrinho:
+def Deletar():
+    print('Deletar')
 
-    print('''
-    {:<} R${:>}''' . format(i , catalogo[i]))
+    print(carrinho)
 
-print(f"\nValor total é: R${valorTotal}\n ")
+    itemDelete = input=("Favor informe qual ID deseja deletar: ")
+    while not itemDelete in carrinho:
+        print("produto não encontrado no carrinho ")
+        itemDelete = input=("Favor informe qual ID deseja deletar: ")
+    carrinho.remove([itemDelete])
+
+
+    Print_catalogo()
+
