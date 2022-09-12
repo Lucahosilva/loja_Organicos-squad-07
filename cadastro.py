@@ -1,108 +1,123 @@
-#from curses.ascii import isdigit 
-
-
-boasvindas = """
-|------------------------------------------------------------------------------------------------------------|
-|                                                                                                            |
-|                                         Seja bem vindo ao Organico’s !!!                                   |
-|                                ----------------------------------------------------                        |
-|                                                                                                            |
-|------------------------------------------------------------------------------------------------------------|
-"""
-
-menu = """
-|--------------------------------------------------------------------------------------------------|
-|             Selecione o menu apertando as teclas sugeridas                                       |
-|                                                                                                  |
-|             Cadastro     - 1                                                                     |
-|             Vendas       - 2                                                                     |                 
-|             Relatórios   - 3                                                                     |
-|             sair         - 0                                                                     |
-|--------------------------------------------------------------------------------------------------|
-"""
-
-print(boasvindas)
+import menu
+import time
+import os
 
 catalogo = {}
-user = input("Digite seu nome: ")
 produto = ''
 valor = ''
 
-print(f'Bem vindo {user}!!!\n\n{menu}')
+print_cad ='''
+    |--------------------------------------------------------------------------------------------------|
+    |                                    Digite o nome do produto:                                     |
+    |                                    Ou Digite 'X' para sair.                                      |
+    |--------------------------------------------------------------------------------------------------|'''
 
-#Chamar outras funções do menu 2
-opcoes = 0
+print_val =f'''
+    |--------------------------------------------------------------------------------------------------|
+    |                                    Digite o valor do produto ?                                   |
+    |                                    Subistitia ' , ' por ' . ' ponto                              | 
+    |                                    Ou Digite 'X' para sair.                                      |
+    |--------------------------------------------------------------------------------------------------|'''
+
+print_menu =f'''
+    |--------------------------------------------------------------------------------------------------|
+    |                                    Opções.                                                       |
+    |                                    1- Cadastrar outro Produto                                    | 
+    |                                    2- Ver catalogo de produto                                    |
+    |                                    3- Voltar ao menu anterior                                    |
+    |--------------------------------------------------------------------------------------------------|'''
+
+print_prod ='''
+    |--------------------------------------------------------------------------------------------------|
+    |                                      Produtos cadastrados                                        |
+    |--------------------------------------------------------------------------------------------------|
+    |         Produtos                                                     Preço                       |
+    |                                                                                                  |'''
+
+print_fim =  """
+    |--------------------------------------------------------------------------------------------------|
+"""
+
 
 
 
 def cadastro():
+    os.system('cls')
+    global catalogo
     global produto
     global valor
-    global catalogo
 
-    print('|--------------------------------------------------------------------------------------------------|')
-    print('''                                                                                                                 
-                Digite o nome do Produto ou \'x\' para sair: 
-                ''')
-    print('|--------------------------------------------------------------------------------------------------|')
-    print('')
-    produto= input('Nome do Produto: ')
+    #while produto != 'x':
+    produto = ''
+    valor = 0
+    print(print_cad)
+    produto= input('\tNome do Produto: ')
 
-    if produto.lower() == "x":
-        print('Voltando ao menu principal')
-        produto = 'x'
-    elif produto.isalpha() == False:
+    if produto.isalpha() == False and len(produto) < 2 :
         print('Entrada Inválida')
+        time.sleep(3)
+        cadastro()
+
     else:
+        os.system('cls')
         while type(valor) != float:
-            print('|--------------------------------------------------------------------------------------------------|')
-            print(f'''  
-                Qual o valor de {produto}?                                                            
-                Substitua a Vírgula por '.' (ponto)                                                   
-                (ou \'x\' para cancelar) : 
-                ''')                                                         
-            print('|--------------------------------------------------------------------------------------------------|',end='\n')
-            print('')
-
-            valor = input(f'Qual o valor de {produto}? : ')
-
+            print(print_val)
+            valor = input(f'Qual o valor de {produto}: ')
             if valor.lower() == 'x':
                 print('Voltando ao menu principal')
-                valor = float(0)
-                produto = 'x'
+                time.sleep(3)
+                cadastro()
+                
             elif valor.replace(".", "", 1).isdigit() == False:
                 print('Entrada Inválida')
+
             else:
                 valor = round(float(valor),2)
                 catalogo[(produto.lower()).capitalize()] = valor
-                produto = 'x'
-    print('|--------------------------------------------------------------------------------------------------|')
-    print('''   
-                Opções-
-
-                1- Cadastrar outro Produto
-                2- Voltar ao menu anterior
-                ''')
-    print('|--------------------------------------------------------------------------------------------------|')
-    opcao_cadastro = input('')
-    if opcao_cadastro.isdigit() == False:
-            print('Entrada Inválida')
-    elif int(opcao_cadastro) == 1:
-        produto = ''
-        valor = ''
-    elif int(opcao_cadastro) == 2:
-        valor = ''
-        produto = 'x'
-    else:
-        print('Entrada Inválida')
-        produto = ''
-        valor = ''
     
+    cad_menu()
+
+
+def cad_menu():
+    
+    os.system('cls')
+    print(print_menu)
+    opcao_cadastro = input('Digite a opção: ')
+    print(opcao_cadastro)
+    if str(opcao_cadastro) == '1':
+        cadastro()
+
+    elif str(opcao_cadastro) == '2':
+        catalogo_prod()
+
+    elif str(opcao_cadastro) == '3':
+        #enviar_catalogo()
+        menu.menu_funcs(catalogo)
+
+    else:
+        print('Entrada Inválida.\n Digite uma opção valida')
+        cad_menu()
         
 
-while produto != 'x':
-    cadastro()
-
-print(catalogo)
-
+def catalogo_prod():
+    global catalogo
+    os.system('cls')
+    print(print_prod, end='')
+    for i in  catalogo.keys():
+        print(f"""
+    |         {i:<20s}.  .  .  .  .  .  .  .  .  .  .  .  .  . R$: {str(catalogo[i]):<6s}                  |""", end=''
+        )
+    print(print_fim)
+    print("\nPara sair aperte 'X'")
+    op = input('Aperte a Tecla:').lower()
+    if op == 'x':
+        cad_menu()
+    else:
+        print('Tecla invalida!!!')
+        time.sleep(3)
+        catalogo_prod()
     
+def enviar_catalogo():
+    global catalogo
+    catalogo = catalogo
+    return catalogo

@@ -1,77 +1,60 @@
 from pickletools import opcodes
 import os
-
-nome = 'William'
+import menu
+nome = ''
+vendas = []
 #---------------------- Impressões de formatação detexto--------------------------------------------#
 relat = f'''
-|--------------------------------------------------------------------------------------------------|
-|                             Vendas feita pelo usuario: {nome:<10s}                                |
-|                                                                                                  |
-|--------------------------------------------------------------------------------------------------|
-|         Produtos                                                     Preço                       |
-|                                                                                                  |'''
+    |--------------------------------------------------------------------------------------------------|
+    |                                  Vendas feita no dia.                                            |
+    |                                                                                                  |
+    |--------------------------------------------------------------------------------------------------|
+    |         Produtos                                                     Preço                       |
+    |                                                                                                  |'''
 
 fim = """
-|--------------------------------------------------------------------------------------------------|
-            """
-
-menu_relat = """
-|--------------------------------------------------------------------------------------------------|
-|             Selecione o menu apertando as teclas sugeridas                                       |
-|                                                                                                  |
-|             Imprimir relátorio        - 1                                                        |
-|             Para sair                 - S                                                        |
-|--------------------------------------------------------------------------------------------------|
-"""
-#---------------------------------------------------------------------------------------------------#
+    |--------------------------------------------------------------------------------------------------|
+                """
 
 
-vendas = {   'Açucar': 10.20,
-            'Pinga': 2.20,
-            'Manteiga': 7.80,
-            'Mel': 10.00,
-            'Vinagre': 3.50,
-            'Escova dental': 12.50,
-            'Coca-cola': 9.00,
-            'Guarana antartica': 7.00,
-        }
-opcoes = 1
+def Relatorio(itens , user):
+    global nome
+    global vendas
 
-#--------------------------------Função para gerar relatorios---------------------------#
-def relatorio():
+    vendas = itens
+    nome = user
+
+    #--------------------------------Função para gerar relatorios---------------------------#
     os.system('cls')
-    print(menu_relat)
-    global opcoes
+    print(relat, end='')
+    for i in range(len(vendas)):
+        print(f"""
+    |         {str(vendas[i][0]):<20s}.  .  .  .  .  .  .  .  .  .  .  .  .  . R$: {str(vendas[i][1]):<6s}                  |""", end=''
+        )
+    
+    total = 0
+    for i in range(len(vendas)):
+        total += vendas[i][1]
+    print(f"""
+    |                                                                                                  |
+    |         Total de vendas no Dia:.  .  .  .  .  .  .  .  .  .  .  .  . R$: {str(total):<6s}                  |""", end=''
+        )
 
-#-----------------While para verificar a função digitada---------------------------#
-    while not opcoes == 0:
-        print('\n')
-        opcoes = input("Digite uma opção: ")
+    print(fim)
+    sair(vendas, nome)
 
-#----------------Funções da opção 1 quando selecionada-----------------------------#
-        if opcoes == '1':
+def sair(vendas, nome):
+    print("\nPara Sair aperte 'X': ")
+    qt = '1'
+    while qt != 'X':
+        qt = input("Tecla: ").upper()
+        if qt == 'X':
+            menu.menu_funcs(vendas)
+        else:
+            print('Opção invalida!!')
             os.system('cls')
-            print(relat, end='')
-            for i in vendas.keys():
-                print(f"""
-|         {i:<20s}.  .  .  .  .  .  .  .  .  .  .  .  .  . R$: {str(vendas[i]):<6s}                  |""", end=''
-            )
-            print(fim)
-            print(menu_relat)
+            Relatorio(vendas, nome)
+
 #--------------Final da opção 1---------------------------------------------------#
 
-#--------------Função quando usuário pede para sair--------------------------------#
-        elif opcoes.upper() == 'S':
-            os.system('cls')
-            print(f"Obrigado {nome}\n\n")
-            break
-
-#------------Verificação de teclas que não são opções----------------------------#
-        else:
-            os.system('cls')
-            print("opção não valida, Digite uma das opções a seguir")
-            print(menu_relat)
-    
-
-# chamar relatorio
-relatorio()
+    #relatorio()
