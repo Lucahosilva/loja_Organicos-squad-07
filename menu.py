@@ -2,7 +2,7 @@ import os
 import cadastro
 import vendas
 import relatorio
-import teste
+
 
 #---------------------------------------Menu inicial---------------------------------------------------#
 
