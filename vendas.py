@@ -59,15 +59,9 @@ def Vendas(itens):
             os.system('cls')
             Print_catalogo()
             print("produto não cadastrado")
-<<<<<<< HEAD
             itemadd = (input("por favor digite o código do produto a ser adicionado: "))
         carrinho.append([lista_de_venda[(int(itemadd) + 1)], catalogo[(lista_de_venda[int(itemadd) + 1])]]) # mudança para nome de item por indice no carrinho de vendas
             #valorCarrinho.append(catalogo[itemadd])
-=======
-            itemadd = (input("por favor digite o nome do produto a ser adicionado: "))
-        carrinho.append([itemadd, catalogo[itemadd] ])
-          
->>>>>>> b33b96a5c87b14bfc4e75cdd0b8462d34f534e60
         print(print_addCar, end='')
         for i in range(len(carrinho)):
             print(f"""
