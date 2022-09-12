@@ -54,7 +54,7 @@ def Vendas(itens):
     while fecha != "N":
         os.system('cls')
         Print_catalogo()
-        itemadd = (input("por favor digite o nome do produto a ser adicionado: "))
+        itemadd = (input("por favor digite o ID do produto a ser adicionado: "))
         while int(itemadd) > len(lista_de_venda): #verifica se o produto está cadastrado. # mudança para nome de item por indice no carrinho de vendas
             os.system('cls')
             Print_catalogo()
@@ -84,10 +84,10 @@ def Deletar():
     print(carrinho)
 
     itemDelete = int(input("Favor informe qual ID deseja deletar: "))
-    while itemDelete not in carrinho[0]:
-        print("produto não encontrado no carrinho ") #verifica se o item está no carrinho
-        itemDelete = input("Favor informe qual ID deseja deletar: ")
-    carrinho.pop[itemDelete]
+    while itemDelete > len(carrinho) :
+       print("produto não encontrado no carrinho ") #verifica se o item está no carrinho
+    itemDelete = int(input("Favor informe qual ID deseja deletar: "))
+    carrinho.pop(itemDelete)
 
     for i in range(len(carrinho)):
             print(f"""
@@ -100,6 +100,9 @@ def Deletar():
     print(f"""
         \n        Total        R$: {total:.2f}""", end='')
 
+    menu.menu_funcs(carrinho)
 
-    Print_catalogo()
+
+
+    
 
