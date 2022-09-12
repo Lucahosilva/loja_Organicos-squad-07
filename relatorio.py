@@ -60,7 +60,7 @@ def relatorio():
             print(menu_relat)
 #--------------Final da opção 1---------------------------------------------------#
 
-#--------------Função quando usuario pedepara sair--------------------------------#
+#--------------Função quando usuário pede para sair--------------------------------#
         elif opcoes.upper() == 'S':
             os.system('cls')
             print(f"Obrigado {nome}\n\n")
