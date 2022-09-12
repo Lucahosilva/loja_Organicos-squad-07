@@ -85,8 +85,8 @@ def Deletar():
 
     itemDelete = int(input("Favor informe qual ID deseja deletar: "))
     while itemDelete > len(carrinho) :
-       print("produto não encontrado no carrinho ") #verifica se o item está no carrinho
-    itemDelete = int(input("Favor informe qual ID deseja deletar: "))
+        print("produto não encontrado no carrinho ") #verifica se o item está no carrinho
+        itemDelete = int(input("Favor informe qual ID deseja deletar: "))
     carrinho.pop(itemDelete)
 
     for i in range(len(carrinho)):
