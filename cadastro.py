@@ -130,7 +130,6 @@ def deletar_item_catalago():
 
 def deletar_item_catalago():
     global catalogo
-    global catalogo
     os.system('cls')
     print(print_prod, end='')
     for i in  catalogo.keys():
@@ -139,7 +138,13 @@ def deletar_item_catalago():
         )
     print(print_fim)
     apagar = str(input('Qual catalago gostaria de deletar: '))
-    catalogo.pop(deletar_item_catalago, None)
+    if apagar in catalogo.keys():
+        catalogo.pop(apagar, None)
+        print(f'{apagar} apagado com sucesso!')
+        time.sleep(3)
+        menu.menu_funcs()      
+
+ 
     
 def enviar_catalogo():
     global catalogo
