@@ -95,6 +95,10 @@ def Deletar():
         itemDelete = int(input("Favor informe qual ID deseja deletar: "))
     carrinho.pop(itemDelete)
 
+    print(f'''
+    item Deletado com sucesso
+    ''')
+
     for i in range(len(carrinho)):
             print(f"""
         Item: {carrinho[i][0]}       """,end='')
@@ -106,6 +110,8 @@ def Deletar():
     print(f"""
         \n        Total        R$: {total:.2f}""", end='')
 
+    
+    time.sleep(3)
     menu.menu_funcs(carrinho)
 
 
