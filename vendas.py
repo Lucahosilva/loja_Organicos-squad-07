@@ -49,12 +49,15 @@ def Vendas(itens):
 
     for item in catalogo: # mudança para nome de item por indice no carrinho de vendas
         lista_de_venda.append(item) # mudança para nome de item por indice no carrinho de vendas
-
+    
     while fecha != "N":
         os.system('cls')
         Print_catalogo()
         itemadd = input("por favor digite o ID do produto a ser adicionado: ")
-        
+        if itemadd.upper()== "S":
+            fecha= "N"
+            menu.menu_funcs(carrinho)
+     
         while not itemadd.isdigit() or  int(itemadd) > len(lista_de_venda) - 1 : #verifica se o produto está cadastrado. # mudança para nome de item por indice no carrinho de vendas
             
             os.system('cls')
