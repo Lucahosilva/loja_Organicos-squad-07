@@ -93,8 +93,12 @@ def cad_menu():
 
     elif str(opcao_cadastro) == '3':
         #enviar_catalogo()
-        menu.menu_funcs(catalogo)
+        deletar_item_catalago()
 
+    elif str(opcao_cadastro) == '3':
+        #enviar_catalogo()
+        menu.menu_funcs(catalogo)
+    
     else:
         print('Entrada Inválida.\n Digite uma opção valida')
         cad_menu()
@@ -126,7 +130,14 @@ def deletar_item_catalago():
 
 def deletar_item_catalago():
     global catalogo
-    print('|-------------------------------------------------------------------------------|')
+    global catalogo
+    os.system('cls')
+    print(print_prod, end='')
+    for i in  catalogo.keys():
+        print(f"""
+    |         {i:<20s}.  .  .  .  .  .  .  .  .  .  .  .  .  . R$: {str(catalogo[i]):<6s}                  |""", end=''
+        )
+    print(print_fim)
     apagar = str(input('Qual catalago gostaria de deletar: '))
     catalogo.pop(deletar_item_catalago, None)
     
