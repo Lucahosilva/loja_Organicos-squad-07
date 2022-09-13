@@ -123,6 +123,12 @@ def deletar_item_catalago():
     print('|-------------------------------------------------------------------------------|')
     apagar = str(input('Qual catalago gostaria de deletar: '))
     catalogo.pop(deletar_item_catalago, None)
+
+def deletar_item_catalago():
+    global catalogo
+    print('|-------------------------------------------------------------------------------|')
+    apagar = str(input('Qual catalago gostaria de deletar: '))
+    catalogo.pop(deletar_item_catalago, None)
     
 def enviar_catalogo():
     global catalogo
