@@ -19,13 +19,22 @@ print_menu = """
 	|--------------------------------------------------------------------------------------------------|
 	|             Selecione o menu apertando as teclas sugeridas                                       |
 	|                                                                                                  |
-	|             Cadastro     -  1                                                                    |
-	|             Vendas       -  2                                                                    |
-	|             Relatórios   -  3                                                                    |
-	|             sair         - 'S'                                                                   |
+	|                       1 - Cadastro                                                               |
+	|                       2 - Vendas                                                                 |
+	|                       3 - Relatórios                                                             |
+	|                       S - Sair                                                                   |
 	|--------------------------------------------------------------------------------------------------|
 	"""
-catalogo = { }
+catalogo = {   'Açucar': 10.20,
+                'Pinga': 2.20,
+                'Manteiga': 7.80,
+                'Mel': 10.00,
+                'Vinagre': 3.50,
+                'Escova dental': 12.50,
+                'Coca-cola': 9.00,
+                'Guarana antartica': 7.00,
+            }
+# Catalogo teste
 carrinho = []
 user = ''
 
@@ -66,6 +75,9 @@ def menu_funcs(itens = []):
 		elif first_choice == "3":
 			os.system('cls')
 			Menu_relatorio()
+		elif first_choice == "4":
+			os.system('cls')
+			cadastro.deletar_item_catalago()
 
 		else:
 			os.system('cls')
