@@ -11,7 +11,7 @@ print_catalogo_vazio = """
 	|                                  Seja bem vindo ao Organico’s !!!                                |
 	|                       ----------------------------------------------------                       |
 	|         Para fazer uma venda ou deletar, o usuário precisa cadastrar um item ao catálogo.        |
-	|         Não existe produtos cadastrados.                                                    |
+	|         Não existe produtos cadastrados.                                                         |
 	|                                                                                                  |
 	|--------------------------------------------------------------------------------------------------|
 	"""
@@ -36,24 +36,24 @@ print_menu = """
 	|                       S - Sair                                                                   |
 	|--------------------------------------------------------------------------------------------------|
 	"""
-catalogo = {   'Açucar': 10.20,
-                'Pinga': 2.20,
-                'Manteiga': 7.80,
-                'Mel': 10.00,
-                'Vinagre': 3.50,
-                'Escova dental': 12.50,
-                'Coca-cola': 9.00,
-                'Guarana antartica': 7.00,
-            }
+catalogo = { }
 # Catalogo teste
 carrinho = []
 user = ''
 
 def Menu_inicial():
+	id = 0 
 	global user
 	os.system('cls')
-	print(print_boasvindas)
-	user = input("\tDigite seu nome: ")
+	while user.isdigit() or len(user) < 3:
+		os.system('cls')
+		print(print_boasvindas)
+		if id == 1:
+			print('\tPor favor, Digite um nome de usuário Valido!!!')
+		user = input("\tDigite seu nome: ")
+		id =1
+		#print('Por favor, Digite um nome de usuário Valido!!!')
+
 	menu_funcs()
 
 
@@ -93,8 +93,8 @@ def menu_funcs(itens = []):
 
 		else:
 			os.system('cls')
-			print('\tPor favor, aperte uma das teclas sugeridas!!!')
 			print(print_menu)
+			print('\tPor favor, aperte uma das teclas sugeridas!!!')
 
 	
 
@@ -104,7 +104,7 @@ print_menu_car ='''
     |--------------------------------------------------------------------------------------------------|
     |                                    Escolha uma função                                            |
     |--------------------------------------------------------------------------------------------------|
-    |        Adicionar item - 1                Deletar item - 2                   Sair - X             |
+    |        Adicionar item - 1                Deletar item - 2                   Sair - 'S'           |
     |--------------------------------------------------------------------------------------------------|'''
 
 
@@ -122,8 +122,11 @@ def Menu_vendas():
 		if func == '1':
 			carrinho = vendas.Vendas(catalogo)
 
-		if func == '2':
+		elif func == '2':
 			vendas.Deletar()
+		
+		elif func == 's':
+			menu_funcs()
 
 
 #----------------------------------------- Menu Reltorios -----------------------------------------#

@@ -9,14 +9,14 @@ valor = ''
 print_cad ='''
     |--------------------------------------------------------------------------------------------------|
     |                                    Digite o nome do produto:                                     |
-    |                                    Ou Digite 'X' para sair.                                      |
+    |                                    Ou Digite 'S' para sair.                                      |
     |--------------------------------------------------------------------------------------------------|'''
 
 print_val =f'''
     |--------------------------------------------------------------------------------------------------|
     |                                    Digite o valor do produto ?                                   |
     |                                    Subistitia ' , ' por ' . ' ponto                              | 
-    |                                    Ou Digite 'X' para sair.                                      |
+    |                                    Ou Digite 'S para sair.                                      |
     |--------------------------------------------------------------------------------------------------|'''
 
 print_menu =f'''
@@ -63,14 +63,14 @@ def cadastro():
         os.system('cls')
         while type(valor) != float:
             print(print_val)
-            valor = input(f'Qual o valor de {produto}: ')
-            if valor.lower() == 'x':
-                print('Voltando ao menu principal')
+            valor = input(f'\tQual o valor de {produto}: ')
+            if valor.upper() == 'S':
+                print('\tVoltando ao menu principal')
                 time.sleep(3)
-                cadastro()
+                cad_menu()
                 
             elif valor.replace(".", "", 1).isdigit() == False:
-                print('Entrada Inválida')
+                print('\tEntrada Inválida')
 
             else:
                 valor = round(float(valor),2)
@@ -83,7 +83,7 @@ def cad_menu():
     
     os.system('cls')
     print(print_menu)
-    opcao_cadastro = input('Digite a opção: ')
+    opcao_cadastro = input('\tDigite a opção: ')
     print(opcao_cadastro)
     if str(opcao_cadastro) == '1':
         cadastro()
@@ -95,7 +95,7 @@ def cad_menu():
         #enviar_catalogo()
         deletar_item_catalago()
 
-    elif str(opcao_cadastro) == '3':
+    elif str(opcao_cadastro) == '4':
         #enviar_catalogo()
         menu.menu_funcs(catalogo)
     
@@ -113,23 +113,17 @@ def catalogo_prod():
     |         {i:<20s}.  .  .  .  .  .  .  .  .  .  .  .  .  . R$: {str(catalogo[i]):<6s}                  |""", end=''
         )
     print(print_fim)
-    print("\nPara sair aperte 'X'")
-    op = input('Aperte a Tecla:').lower()
-    if op == 'x':
+    print("\t\nPara sair aperte 'S'")
+    op = input('\tAperte a Tecla:').upper()
+    if op == 'S':
         cad_menu()
     else:
-        print('Tecla invalida!!!')
+        print('\tTecla invalida!!!')
         time.sleep(3)
         catalogo_prod()
 
-def deletar_item_catalago():
-    global catalogo
-    print('|-------------------------------------------------------------------------------|')
-    apagar = str(input('Qual catalago gostaria de deletar: '))
-    catalogo.pop(deletar_item_catalago, None)
 
 def deletar_item_catalago():
-    global catalogo
     global catalogo
     os.system('cls')
     print(print_prod, end='')
@@ -138,8 +132,21 @@ def deletar_item_catalago():
     |         {i:<20s}.  .  .  .  .  .  .  .  .  .  .  .  .  . R$: {str(catalogo[i]):<6s}                  |""", end=''
         )
     print(print_fim)
-    apagar = str(input('Qual catalago gostaria de deletar: '))
-    catalogo.pop(deletar_item_catalago, None)
+    apagar = str(input('\tDigite o nome do Item gostaria de deletar do catalogo: '))
+    if apagar in catalogo.keys():
+        catalogo.pop(apagar, None)
+        os.system('cls')
+        print(print_prod, end='')
+        for i in  catalogo.keys():
+            print(f"""
+    |         {i:<20s}.  .  .  .  .  .  .  .  .  .  .  .  .  . R$: {str(catalogo[i]):<6s}                  |""", end=''
+            )
+        print(print_fim)
+        print(f'\t{apagar} deletado com sucesso!')
+        time.sleep(3)
+        menu.menu_funcs()      
+
+ 
     
 def enviar_catalogo():
     global catalogo
