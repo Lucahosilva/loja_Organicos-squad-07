@@ -6,7 +6,4 @@
 o Exercicio consiste em criar um sistema em linha de comando de uma cooperativa de pequenos produtores chamada <strong>Organico's</strong>
 </p>
 
-
-
-
-
+"Favor executar o programa  a partir do arquivo main.py"
