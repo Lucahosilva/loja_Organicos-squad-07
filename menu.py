@@ -36,15 +36,7 @@ print_menu = """
 	|                       S - Sair                                                                   |
 	|--------------------------------------------------------------------------------------------------|
 	"""
-catalogo = {   'Açucar': 10.20,
-                'Pinga': 2.20,
-                'Manteiga': 7.80,
-                'Mel': 10.00,
-                'Vinagre': 3.50,
-                'Escova dental': 12.50,
-                'Coca-cola': 9.00,
-                'Guarana antartica': 7.00,
-            }
+catalogo = { }
 # Catalogo teste
 carrinho = []
 user = ''
