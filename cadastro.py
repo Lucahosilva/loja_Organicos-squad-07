@@ -16,7 +16,7 @@ print_val =f'''
     |--------------------------------------------------------------------------------------------------|
     |                                    Digite o valor do produto ?                                   |
     |                                    Subistitia ' , ' por ' . ' ponto                              | 
-    |                                    Ou Digite 'S para sair.                                      |
+    |                                    Ou Digite 'S para sair.                                       |
     |--------------------------------------------------------------------------------------------------|'''
 
 print_menu =f'''
@@ -52,9 +52,13 @@ def cadastro():
     produto = ''
     valor = 0
     print(print_cad)
-    produto= input('\tNome do Produto: ')
+    produto = input('\tNome do Produto: ')
 
-    if produto.isalpha() == False or len(produto) <= 2 :
+    if produto.upper() == 'S':
+        print('\tVoltando ao menu principal')
+        time.sleep(3)
+        cad_menu()
+    elif produto.isalpha() == False or len(produto) <= 2 :
         print('Entrada Inválida')
         time.sleep(3)
         cadastro()
