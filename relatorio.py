@@ -1,4 +1,5 @@
 from pickletools import opcodes
+
 import os
 import menu
 nome = ''
@@ -35,10 +36,23 @@ def Relatorio(itens , user):
     total = 0
     for i in range(len(vendas)):
         total += vendas[i][1]
+    
+    maior = 0
+    for i in range(len(vendas)):
+        if float(maior) < vendas[i][1]:
+            maior = vendas[i][1]
+    
+    menor = 999999999999
+    for i in range(len(vendas)):
+        if float(menor) > vendas[i][1]:
+            menor = vendas[i][1]
+
     print(f"""
-    |                                                                                                  |
-    |         Total de vendas no Dia:.  .  .  .  .  .  .  .  .  .  .  .  . R$: {str(total):<6s}                  |""", end=''
+    |--------------------------------------------------------------------------------------------------|
+    |             Total de vendas | Item com maior valor | Item com menor valor | Ticket médio         | 
+    |             R$: {str(total):<6s}      | R$: {maior:.2f}            | R$: {menor:.2f}             | R$: {total / len(vendas):.2f}             |""", end=''
         )
+    
 
     print(fim)
     sair(vendas, nome)
