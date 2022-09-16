@@ -1,7 +1,7 @@
 # <img src="https://www.imagensempng.com.br/wp-content/uploads/2021/07/03-26.png" alt="Logo Gama Academy" width="100" align="center"/> Loja Orgânico's 
 
 <h3>Esta é a resolução do projeto proposto pela Gama Academy <img src="https://cdn-images-1.medium.com/max/1200/1*EGF3tCyOPIiYy3zfyg8HpA.png" alt="Logo Gama Academy" width="50" align="center"/> </h3> 
-<h3 >como parte do programa ( DIV ) de treinamento de Desenvolvedores para o <img src="https://vagas.byintera.com/wp-content/uploads/2021/04/luiza-labs.1616501197-1024x376.png" alt="Logo luiza labs" height="50" align="center"/> </h3>
+<h3 >Como parte do programa  DIV <br/><br/> Treinamento de Desenvolvedores para o <img src="https://vagas.byintera.com/wp-content/uploads/2021/04/luiza-labs.1616501197-1024x376.png" alt="Logo luiza labs" height="50" align="center"/> </h3>
 
 <br/>
 <br/>
@@ -38,4 +38,4 @@ após configuração e instalação 🛠️ :
 <br/>
 <br/>
 
-Esperamos que tenha gostado,<br/> ficaremos felizes caso encontre algum problema e registre um issue, ou propôr alguma melhoria num pull request! 🤙
+Esperamos que tenha gostado,<br/> ficaremos felizes caso encontre algum problema e registre um issue,<br/> ou propôr alguma melhoria num pull request! 🤙
