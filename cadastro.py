@@ -1,6 +1,7 @@
 import menu
 import time
 import os
+from termcolor import colored
 
 catalogo = {}
 produto = ''
@@ -146,7 +147,8 @@ def deletar_item_catalago():
     |         {i:<20s}.  .  .  .  .  .  .  .  .  .  .  .  .  . R$: {str(catalogo[i]):<6s}                  |""", end=''
             )
         print(print_fim)
-        print(f'\t{apagar} deletado com sucesso!')
+        print(colored(apagar, 'red'), end='')
+        print(' deletado com sucesso!')
         time.sleep(3)
         menu.menu_funcs()      
 
