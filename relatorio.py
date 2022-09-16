@@ -1,6 +1,7 @@
 from pickletools import opcodes
 import os
 import menu
+import time
 nome = ''
 vendas = []
 #---------------------- Impressões de formatação detexto--------------------------------------------#
