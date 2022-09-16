@@ -28,6 +28,7 @@ print_fim =  """
 catalogo = {}
 carrinho = []
 total = 0
+historico = []
 
 def Print_catalogo():
     global catalogo
@@ -44,6 +45,7 @@ def Vendas(itens):
     global carrinho
     catalogo = itens
     global total
+    
     fecha = "S"
     lista_de_venda = [] # mudança para nome de item por indice no carrinho de vendas
 
@@ -141,9 +143,14 @@ def finalizarVenda():
     print(f'''
     Venda Finalizada com sucesso!
 
-    Seu Total a pagar e' de R$: {total:.2f} '''"\n"
+    Seu Total a pagar é de R$: {total:.2f} '''"\n"
     )
+
     print("Voltando ao menu anterior")
+
+    historico.append(carrinho)
+
+    carrinho =[]
     
     time.sleep(5)
     menu.menu_funcs(carrinho)
