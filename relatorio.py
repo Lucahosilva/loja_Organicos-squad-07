@@ -1,6 +1,8 @@
 from pickletools import opcodes
 import os
 import menu
+import tela 
+
 nome = ''
 vendas = []
 #---------------------- Impressões de formatação detexto--------------------------------------------#
@@ -42,7 +44,7 @@ def Relatorio(itens , user):
         menu.menu_funcs(vendas)
     else:
 
-        os.system('cls')
+        tela.LimparTela()
         print(relat, end='')
         for i in range(len(vendas)):
             print(f"""
@@ -79,7 +81,7 @@ def sair(vendas, nome):
             menu.menu_funcs(vendas)
         else:
             print('Opção invalida!!')
-            os.system('cls')
+            tela.LimparTela()
             Relatorio(vendas, nome)
 
 #--------------Final da opção 1---------------------------------------------------#
