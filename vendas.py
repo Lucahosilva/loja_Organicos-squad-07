@@ -130,6 +130,28 @@ def Deletar():
         time.sleep(3)
         menu.menu_funcs(carrinho)
 
+def finalizarVenda():
+    global carrinho
+    os.system('cls')
+    total = 0
+
+    for i in range(len(carrinho)):
+            total += carrinho[i][1]
+
+    print(f'''
+    Venda Finalizada com sucesso!
+
+    Seu Total a pagar e' de R$: {total:.2f} '''"\n"
+    )
+    print("Voltando ao menu anterior")
+    
+    time.sleep(5)
+    menu.menu_funcs(carrinho)
+
+
+
+
+
 
 
     
