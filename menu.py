@@ -4,6 +4,7 @@ import cadastro
 import vendas
 import relatorio
 import menu
+import tela 
 
 
 #---------------------------------------Menu inicial---------------------------------------------------#
@@ -53,9 +54,9 @@ user = ''
 def Menu_inicial():
 	id = 0 
 	global user
-	os.system('cls')
+	tela.LimparTela()
 	while user.isdigit() or len(user) < 3:
-		os.system('cls')
+		tela.LimparTela()
 		print(print_boasvindas)
 		if id == 1:
 			print('\tPor favor, Digite um nome de usuário Valido!!!')
@@ -70,7 +71,7 @@ def menu_funcs(itens = []):
 	global carrinho
 	carrinho = itens
 	global catalogo
-	os.system('cls')
+	tela.LimparTela()
 	print(print_menu)
 
 	first_choice = 0
@@ -78,30 +79,30 @@ def menu_funcs(itens = []):
 		first_choice= input ('\tTecla: ')
 
 		if first_choice.upper() == "S":
-			os.system('cls')
+			tela.LimparTela()
 			print(f"{user}, agradeço sua companhia e espero que tenha ajudado.")
 			exit()
 
 		elif first_choice == "1":
-			os.system('cls')
+			tela.LimparTela()
 			catalogo = cadastro.enviar_catalogo()
 			cadastro.cad_menu()
 			
 
 		elif first_choice == "2":
-			os.system('cls')
+			tela.LimparTela()
 			Menu_vendas()
 
 		elif first_choice == "3":
-			os.system('cls')
+			tela.LimparTela()
 			Menu_relatorio()
 			
 		elif first_choice == "4":
-			os.system('cls')
+			tela.LimparTela()
 			cadastro.deletar_item_catalago()
 
 		else:
-			os.system('cls')
+			tela.LimparTela()
 			print(print_menu)
 			print('\tPor favor, aperte uma das teclas sugeridas!!!')
 
@@ -123,7 +124,7 @@ def Menu_vendas():
 	print(print_menu_car)
 	func = input('\tEscolha uma Função: ')
 	if len(catalogo) == 0:
-		os.system('cls')
+		tela.LimparTela()
 		print(print_catalogo_vazio)
 		time.sleep(5)
 		menu_funcs()
@@ -154,7 +155,7 @@ menu_relatorio = """
 def Menu_relatorio():
 	global carrinho
 	global user
-	os.system('cls')
+	tela.LimparTela()
 	print(menu_relatorio)
 	func = input('\tEscolha uma Função: ')
 	if func == '1':

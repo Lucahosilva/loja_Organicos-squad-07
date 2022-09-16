@@ -1,6 +1,8 @@
 import menu
 import time
 import os
+import tela
+
 from termcolor import colored
 
 catalogo = {}
@@ -44,7 +46,7 @@ print_fim =  """
 
 
 def cadastro():
-    os.system('cls')
+    tela.LimparTela()
     global catalogo
     global produto
     global valor
@@ -65,7 +67,7 @@ def cadastro():
         cadastro()
 
     else:
-        os.system('cls')
+        tela.LimparTela()
         while type(valor) != float:
             print(print_val)
             valor = input(f'\tQual o valor de {produto}: ')
@@ -86,7 +88,7 @@ def cadastro():
 
 def cad_menu():
     
-    os.system('cls')
+    tela.LimparTela()
     print(print_menu)
     opcao_cadastro = input('\tDigite a opção: ')
     print(opcao_cadastro)
@@ -111,7 +113,7 @@ def cad_menu():
 
 def catalogo_prod():
     global catalogo
-    os.system('cls')
+    tela.LimparTela()
     print(print_prod, end='')
     for i in  catalogo.keys():
         print(f"""
@@ -130,7 +132,7 @@ def catalogo_prod():
 
 def deletar_item_catalago():
     global catalogo
-    os.system('cls')
+    tela.LimparTela()
     print(print_prod, end='')
     for i in  catalogo.keys():
         print(f"""
@@ -140,7 +142,7 @@ def deletar_item_catalago():
     apagar = str(input('\tDigite o nome do Item gostaria de deletar do catalogo: '))
     if apagar in catalogo.keys():
         catalogo.pop(apagar, None)
-        os.system('cls')
+        tela.LimparTela()
         print(print_prod, end='')
         for i in  catalogo.keys():
             print(f"""

@@ -1,6 +1,7 @@
 import os
 import time
 import menu
+import tela 
 
 print_addCar = """
     |----------------------------|
@@ -32,7 +33,7 @@ historico = []
 
 def Print_catalogo():
     global catalogo
-    os.system('cls')
+    tela.LimparTela()
     print(print_prod, end='')
     for i, produto in  enumerate(catalogo):
         print(f"""
@@ -53,7 +54,7 @@ def Vendas(itens):
         lista_de_venda.append(item) # mudança para nome de item por indice no carrinho de vendas
     
     while fecha != "N":
-        os.system('cls')
+        tela.LimparTela()
         Print_catalogo()
         itemadd = input("por favor digite o ID do produto a ser adicionado ou a tecla 'S' para sair: ")
         if itemadd.upper()== "S":
@@ -62,7 +63,7 @@ def Vendas(itens):
      
         while not itemadd.isdigit() or  int(itemadd) > len(lista_de_venda) - 1 : #verifica se o produto está cadastrado. # mudança para nome de item por indice no carrinho de vendas
             
-            os.system('cls')
+            tela.LimparTela()
             Print_catalogo()
             print("produto não cadastrado")
             itemadd = (input("por favor digite o código do produto a ser adicionado: "))
@@ -84,11 +85,11 @@ def Vendas(itens):
             
         fecha = str(input("\n\ndeseja adicionar mais intens? (S/N): ")).upper()
         #return carrinho
-    os.system('cls')
+    tela.LimparTela()
     menu.Menu_vendas()
 
 def Deletar():
-    os.system('cls')
+    tela.LimparTela()
     print(print_addCar, end='')
     for i in range(len(carrinho)):
         print(f"""
@@ -134,7 +135,7 @@ def Deletar():
 
 def finalizarVenda():
     global carrinho
-    os.system('cls')
+    tela.LimparTela()
     total = 0
 
     for i in range(len(carrinho)):
