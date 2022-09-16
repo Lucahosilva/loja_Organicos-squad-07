@@ -22,7 +22,24 @@ Projeto Desenvolvido por [Willian Ferrari](https://github.com/WillCh3), [Divino 
 
 Para que possa visualizar é necessário instalar o Python na sua máquina <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/1200px-Python.svg.png" alt="Python logo" width="25"/>
 
-aqui tem um ótimo ->>> [Tutorial](https://programadorviking.com.br/como-instalar-o-python/) 📜 
+aqui tem um ótimo ->>> [Tutorial](https://programadorviking.com.br/como-instalar-o-python/) 📜 <br/>
+
+- Você pode verificar se está tudo correto pelos comandos :
+```bash
+python --version
+```
+```bash
+pip --version
+```
+
+Neste projeto também utilizamos a <strong>Biblioteca termcolor </strong><img src="https://user-images.githubusercontent.com/111925756/190716035-974f4b74-ee96-4c10-bded-bcc95ba8694c.png" width="50" align="center"/><br/> Após instalar o python e o módulo pip (Gerenciador de pacotes do Python)<br/>
+
+- Para que o projeto funcione, você deve instalar a Biblioteca  pelo terminal utilizando o comando:
+
+```bash
+pip install termcolor
+```
+
 
 após configuração e instalação 🛠️ : 
 
