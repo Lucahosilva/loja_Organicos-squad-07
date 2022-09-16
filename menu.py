@@ -113,7 +113,7 @@ print_menu_car ='''
     |--------------------------------------------------------------------------------------------------|
     |                                    Escolha uma função                                            |
     |--------------------------------------------------------------------------------------------------|
-    |        Adicionar item - 1                Deletar item - 2                   Sair - 'S'           |
+    |        Adicionar item - 1      Deletar item - 2       checkout  -3          Sair - 'S'           |
     |--------------------------------------------------------------------------------------------------|'''
 
 
@@ -133,6 +133,9 @@ def Menu_vendas():
 
 		elif func == '2':
 			vendas.Deletar()
+		
+		elif func == '3':
+			vendas.finalizarVenda()
 		
 		elif func == 's':
 			menu_funcs()
