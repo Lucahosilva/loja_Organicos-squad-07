@@ -140,6 +140,7 @@ def finalizarVenda():
 
     for i in range(len(carrinho)):
             total += carrinho[i][1]
+            historico.append(carrinho[i]) # adicionei aqui o carrinho, pois la em baixo estava adicionando itens vazios
 
     print(f'''
     Venda Finalizada com sucesso!
@@ -148,13 +149,12 @@ def finalizarVenda():
     )
 
     print("Voltando ao menu anterior")
-
-    historico.append(carrinho)
-
-    carrinho =[]
+    
+    #historico.append(carrinho)  #################################
+    carrinho.clear()   # mudei para clear para nao gerar item vazio
     
     time.sleep(5)
-    menu.menu_funcs(carrinho)
+    menu.menu_funcs(historico)
 
 
 

@@ -44,7 +44,7 @@ def Relatorio(itens , user):
         time.sleep(3)
         menu.menu_funcs(vendas)
     else:
-
+        print(vendas)
         tela.LimparTela()
         print(relat, end='')
         for i in range(len(vendas)):
@@ -68,7 +68,7 @@ def Relatorio(itens , user):
         print(f"""
     |--------------------------------------------------------------------------------------------------|
     |             Total de vendas | Item com maior valor | Item com menor valor | Ticket médio         | 
-    |             R$: {str(total):<6s}      | R$: {maior:.2f}            | R$: {menor:.2f}             | R$: {total / len(vendas):.2f}             |""", end=''
+                  R$: {total:.2f}        R$: {maior:.2f}              R$: {menor:.2f}              R$: {total / len(vendas):.2f}            """, end=''
             )
         print(fim)
         sair(vendas, nome)
