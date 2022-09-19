@@ -3,8 +3,9 @@ import time
 import cadastro
 import vendas
 import relatorio
-import menu
 import tela 
+from cadastro import catalogo
+from vendas import carrinho
 
 
 #---------------------------------------Menu inicial---------------------------------------------------#
@@ -38,17 +39,7 @@ print_menu = """
 	|                       S - Sair                                                                   |
 	|--------------------------------------------------------------------------------------------------|
 	"""
-catalogo = { 'Açucar': 10.20,
-                'Pinga': 2.20,
-                'Manteiga': 7.80,
-                'Mel': 10.00,
-                'Vinagre': 3.50,
-                'Escova dental': 12.50,
-                'Coca-cola': 9.00,
-                'Guarana antartica': 7.00,
-			}
 # Catalogo teste
-carrinho = []
 user = ''
 
 def Menu_inicial():
@@ -68,9 +59,7 @@ def Menu_inicial():
 
 
 def menu_funcs(itens = []):
-	global carrinho
 	carrinho = itens
-	global catalogo
 	tela.LimparTela()
 	print(print_menu)
 
@@ -85,7 +74,6 @@ def menu_funcs(itens = []):
 
 		elif first_choice == "1":
 			tela.LimparTela()
-			catalogo = cadastro.enviar_catalogo()
 			cadastro.cad_menu()
 			
 
@@ -119,8 +107,6 @@ print_menu_car ='''
 
 
 def Menu_vendas():
-	global catalogo
-	global carrinho
 	print(print_menu_car)
 	func = input('\tEscolha uma Função: ')
 	if len(catalogo) == 0:
@@ -130,7 +116,7 @@ def Menu_vendas():
 		menu_funcs()
 	else:
 		if func == '1':
-			carrinho = vendas.Vendas(catalogo)
+			vendas.Vendas()
 
 		elif func == '2':
 			vendas.Deletar()
@@ -153,13 +139,11 @@ menu_relatorio = """
     |--------------------------------------------------------------------------------------------------|
     """
 def Menu_relatorio():
-	global carrinho
-	global user
 	tela.LimparTela()
 	print(menu_relatorio)
 	func = input('\tEscolha uma Função: ')
 	if func == '1':
-		carrinho = relatorio.Relatorio(carrinho, user)
+		relatorio.Relatorio(user)
 
 	if func == 'S':
 		print('Saindo!!!')

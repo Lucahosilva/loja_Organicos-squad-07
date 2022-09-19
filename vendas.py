@@ -2,6 +2,8 @@ import os
 import time
 import menu
 import tela 
+from cadastro import catalogo
+from registro import Historico_vendas
 
 print_addCar = """
     |----------------------------|
@@ -26,13 +28,12 @@ print_fim =  """
     |--------------------------------------------------------------------------------------------------|
 """
 #Variaveis--------------
-catalogo = {}
 carrinho = []
 total = 0
 historico = []
+historico = Historico_vendas.carregar(historico)
 
 def Print_catalogo():
-    global catalogo
     tela.LimparTela()
     print(print_prod, end='')
     for i, produto in  enumerate(catalogo):
@@ -41,12 +42,7 @@ def Print_catalogo():
         )
     print(print_fim)     
 
-def Vendas(itens):
-    global catalogo
-    global carrinho
-    catalogo = itens
-    global total
-    
+def Vendas():
     fecha = "S"
     lista_de_venda = [] # mudança para nome de item por indice no carrinho de vendas
 
@@ -86,7 +82,9 @@ def Vendas(itens):
         fecha = str(input("\n\ndeseja adicionar mais intens? (S/N): ")).upper()
         #return carrinho
     tela.LimparTela()
+    Historico_vendas.exportar(historico)
     menu.Menu_vendas()
+    
 
 def Deletar():
     tela.LimparTela()
@@ -131,10 +129,11 @@ def Deletar():
         ''')
         
         time.sleep(3)
+        Historico_vendas.exportar(historico)
         menu.menu_funcs(carrinho)
+        
 
 def finalizarVenda():
-    global carrinho
     tela.LimparTela()
     total = 0
 
@@ -154,7 +153,9 @@ def finalizarVenda():
     carrinho.clear()   # mudei para clear para nao gerar item vazio
     
     time.sleep(5)
+    Historico_vendas.exportar(historico)
     menu.menu_funcs(historico)
+    
 
 
 

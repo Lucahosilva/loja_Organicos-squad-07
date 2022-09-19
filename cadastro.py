@@ -2,10 +2,10 @@ import menu
 import time
 import os
 import tela
-
+from registro import Catalogo
 from termcolor import colored
 
-catalogo = {}
+catalogo = Catalogo.carregar()
 produto = ''
 valor = ''
 
@@ -47,11 +47,6 @@ print_fim =  """
 
 def cadastro():
     tela.LimparTela()
-    global catalogo
-    global produto
-    global valor
-
-    #while produto != 'x':
     produto = ''
     valor = 0
     print(print_cad)
@@ -86,8 +81,7 @@ def cadastro():
     cad_menu()
 
 
-def cad_menu():
-    
+def cad_menu(): 
     tela.LimparTela()
     print(print_menu)
     opcao_cadastro = input('\tDigite a opção: ')
@@ -104,6 +98,7 @@ def cad_menu():
 
     elif str(opcao_cadastro) == '4':
         #enviar_catalogo()
+        Catalogo.exportar(catalogo)
         menu.menu_funcs(catalogo)
     
     else:
@@ -112,7 +107,6 @@ def cad_menu():
         
 
 def catalogo_prod():
-    global catalogo
     tela.LimparTela()
     print(print_prod, end='')
     for i in  catalogo.keys():
@@ -131,7 +125,6 @@ def catalogo_prod():
 
 
 def deletar_item_catalago():
-    global catalogo
     tela.LimparTela()
     print(print_prod, end='')
     for i in  catalogo.keys():
@@ -153,10 +146,3 @@ def deletar_item_catalago():
         print(' deletado com sucesso!')
         time.sleep(3)
         menu.menu_funcs()      
-
- 
-    
-def enviar_catalogo():
-    global catalogo
-    catalogo = catalogo
-    return catalogo
