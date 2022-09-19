@@ -31,7 +31,7 @@ print_fim =  """
 carrinho = []
 total = 0
 historico = []
-historico = Historico_vendas.carregar(historico)
+Historico_vendas.carregar(historico)
 
 def Print_catalogo():
     tela.LimparTela()
