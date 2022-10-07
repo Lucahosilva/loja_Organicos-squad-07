@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Editar Item</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css')}}">
+  </script>
+    </head>
+    <body>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 edicao_main">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Editar Produto - {{nome_produto}}</h1>
+                    </div>
+
+                    <form action="/alteracoes_produto" method="GET">
+                        <fieldset>
+                        <input type="text" value="{{nome_produto}}" name="antigo_nome"class="visually-hidden form-control" required autofocus>
+                        <label for="nome" class="label">Nome:</label>
+                        <input type="text" value="{{nome_produto}}" name="novo_nome"  id="nome" class="form-control" placeholder="Nome do Produto" required autofocus>
+                        
+                        <label for="quantidade" class="label">Quantidade:</label>
+                        <input type="number" value="{{quantidade}}" data-type="number" name="quantidade"  id="quantidade" class="form-control" placeholder="Quantidade" required>
+
+                        <label for="nome" class="label">Preco  R$:</label>
+                        <input type="text" value="{{valor}}" data-type="currency" name="preco"  id="preco" class="form-control" placeholder="Nome do Produto" required autofocus>
+                        
+                        <br>
+                        <div class="edicao_botoes">
+                            <button class="btn btn-success" type="submit">Atualizar</button>
+                    </fieldset>
+                    </form>
+                        <a href="/deletar_produto/{{nome_produto}}"><button class="btn btn-danger">Deletar</button></a>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    </body>
+</html>
