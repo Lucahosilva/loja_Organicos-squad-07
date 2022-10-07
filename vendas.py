@@ -4,6 +4,7 @@ import menu
 import tela 
 from cadastro import catalogo
 from registro import Historico_vendas
+import pandas as pd
 
 print_addCar = """
     |----------------------------|
