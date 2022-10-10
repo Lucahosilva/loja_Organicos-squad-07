@@ -83,7 +83,7 @@ def listar():
     quantidade = argumento['quantidade']
     catalogo.loc[produto]=[quantidade, preco]
     catalogo.to_csv('catalogo.csv')
-    flash('(Produto adicionado com sucesso !')
+    flash(f'{produto} adicionado com sucesso !')
     return redirect('/cadastro')
 
 
