@@ -7,6 +7,7 @@ import pandas as pd
 app = Flask(__name__)
 catalogo = pd.read_csv('projeto2_lucas_silva/catalogo.csv', sep=';')
 cart = pd.DataFrame({"Produto":[],"valor":[], "Quantidade":[]})
+total = 0
 
 @app.route('/carrinho/<pag>')
 def carrinho(pag):
@@ -17,18 +18,13 @@ def carrinho(pag):
 @app.route('/produto_adicionado/<produto>/<valor>')
 def teste(produto , valor):
         cart.loc[len(cart)] = produto , valor, 1 
-        cart.to_csv('projeto2_lucas_silva/cart.csv')
-       
+        cart.to_csv('projeto2_lucas_silva/cart.csv')       
         return redirect ('/carrinho/1')
     
 @app.route('/finalizar')
 def finalizar():
+    total = 10
     return render_template('Checkout.html' ,cart =cart)
     
-
-
-
-
-
 if __name__ == "__main__":
     app.run(debug=True)
