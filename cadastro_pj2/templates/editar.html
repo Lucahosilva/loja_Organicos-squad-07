@@ -10,8 +10,7 @@
   </script>
     </head>
     <body>
-
-        <div class="container-fluid">
+        <div class="container-fluid bg-cd">
             <div class="row">
 
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 edicao_main">
@@ -36,8 +35,21 @@
                             <button class="btn btn-success" type="submit">Atualizar</button>
                     </fieldset>
                     </form>
-                        <a href="/deletar_produto/{{nome_produto}}"><button class="btn btn-danger">Deletar</button></a>
+                        <a href="#popup1"><button class="btn btn-danger">Deletar</button></a>
                     </div>
+                        <div id="popup1" class="overlay">
+                            <div class="popup">
+                                <h2>Deletar Produto</h2>
+                                <a class="close" href="#">&times;</a>
+                                <div class="content">
+                                    Tem certeza que deseja deletar {{nome_produto}} ?
+                                </div>
+                                <div class="linha-del-btn">
+                                    <a href="/cadastro"><button class="btn">Sair</button></a>
+                                    <a href="/deletar_produto/{{nome_produto}}"><button class="btn btn-danger">Deletar</button></a>
+                                </div>
+                            </div>
+                        </div>
                 </main>
             </div>
         </div>

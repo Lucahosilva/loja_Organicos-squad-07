@@ -1,5 +1,5 @@
-from flask import Flask, redirect, render_template, request
-from flask.helpers import flash, url_for
+from flask import Flask, redirect, render_template, request, url_for
+from flask.helpers import flash
 import pandas as pd
 import time
 
@@ -36,14 +36,14 @@ def altera_item():
     catalogo.rename(index={antigo_nome: novo_nome}, inplace=True)
     catalogo.to_csv('catalogo.csv')
     time.sleep(2)
-    flash('Produto alterado com sucesso !')
+    flash('Produto alterado com sucesso !', 'alert alert-success')
     return redirect('/cadastro')
 
 @app.route('/deletar_produto/<string:nome_produto>')
 def deletar(nome_produto):
     itens_deletados.append(catalogo.drop(nome_produto, inplace=True))
     catalogo.to_csv('catalogo.csv')
-    flash('Produto Deletado !')
+    flash(f'Produto {nome_produto} Deletado !', 'alert delete-sucess')
     return redirect('/cadastro')
 
 @app.route('/cadastro_filtro_preco_crescente')
@@ -83,7 +83,7 @@ def listar():
     quantidade = argumento['quantidade']
     catalogo.loc[produto]=[quantidade, preco]
     catalogo.to_csv('catalogo.csv')
-    flash('(Produto adicionado com sucesso !')
+    flash(f'{produto} adicionado com sucesso !', 'alert alert-success')
     return redirect('/cadastro')
 
 

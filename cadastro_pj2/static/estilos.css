@@ -1,3 +1,44 @@
+/* Reset CSS*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+
 .catalogo{
     display:flex;
     flex-direction: column;
@@ -51,8 +92,9 @@
 /* css divino */
 
 .field-add {
-    margin: 10px;
+    margin: 0 10px 10px 10px;
     border: solid 1.5px #a7d046;
+    background-color: #f8f9fad9;
 }
 .form-add {
     margin: 20px;
@@ -80,6 +122,7 @@
     text-align: center;
     padding: 10px;
     padding-bottom: 30px;
+    font-size: 1.6em;
 }
 
 .h1-form-add:after{
@@ -105,3 +148,92 @@
     width: 100%;
 }
 
+.flashes{
+    padding-left: 0;}
+
+.delete-sucess{
+    --bs-alert-color: #953f02;
+    --bs-alert-bg: #db7923b3;
+    --bs-alert-border-color: #db474773;
+    text-align: center;
+}
+
+.alert-success {
+    --bs-alert-color: #0f5132;
+    --bs-alert-bg: #d1e7dd;
+    text-align: center;
+    --bs-alert-border-color: #badbcc;
+}
+
+.puff-out-center{animation:puff-out-center 3s cubic-bezier(.165,.84,.44,1.000) 2s both}
+
+
+@keyframes puff-out-center{0%{transform:scale(1);filter:blur(0);opacity:1}100%{transform:scale(2);filter:blur(4px);opacity:0}}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .popup .close:hover {
+    color: #06D85F;
+  }
+  .popup .content {
+    overflow: auto;
+    margin: 2em;
+    font-size: 1em;
+    font-weight: 700;
+  }
+
+  .linha-del-btn{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin: 1em;
+
+  }
+
+  #btn-cad{
+    text-align: center !important;
+  }
+
+  .bg-cd{
+    background: url(../static/img/golden_field.jpeg)center;
+    padding: 1em;
+  }
