@@ -40,7 +40,12 @@
                         </div>
                       </td>
                       <td class="text-right font-weight-semibold align-middle p-4">{{row['valor']}}</td>
-                      <td class="align-middle p-4"><input type="number" class="form-control text-center" value="{{row['Quantidade']}}"></td>
+                      <td class="align-middle p-4"></td>
+                        <form action="/finalizar" method="GET"><td class="align-middle p-4 qtd-btn">
+                          <input type="number" name="{{index}}" class="form-control text-center" value="{{row['Quantidade']}}">
+                            <button type="submit"><img src="../static/img/soma.png" height="20px"></button>
+                        </form>
+                      </td>
                       <td class="text-right font-weight-semibold align-middle p-4">{{row['valor']}}</td>
                       <td class="text-center align-middle px-0"><a href="produto_excluido/{{index}}" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
                     </tr>          
