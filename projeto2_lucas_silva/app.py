@@ -7,6 +7,7 @@ import pandas as pd
 app = Flask(__name__)
 catalogo = pd.read_csv('projeto2_lucas_silva/catalogo.csv', sep=',')
 cart = pd.DataFrame({"Produto":[],"valor":[], "Quantidade":[]})
+cart.set_index('Produto', inplace = True)
 total = 0
 
 @app.route('/carrinho/<pag>')
@@ -17,20 +18,25 @@ def carrinho(pag):
 
 @app.route('/produto_adicionado/<produtos>/<valor>')
 def teste(produtos , valor):
-        cart.loc[len(cart)] = produtos , valor, 1 
-        cart.to_csv('projeto2_lucas_silva/cart.csv')       
-        return redirect ('/carrinho/1')
+    if produtos in cart.index.values:
+        cart.loc[produtos,"Quantidade"] += 1 
+    else:
+        cart.loc[produtos] =  [valor, 1 ]
+    cart.to_csv('projeto2_lucas_silva/cart.csv')       
+    return redirect(request.referrer)
+    #return redirect ('/carrinho/1')
 
 @app.route('/produto_excluido/<produtos>')
 def excluir(produtos):
     cart.drop(produtos, inplace = True)
     cart.to_csv('projeto2_lucas_silva/cart.csv')  
-    return redirect('Checkout.html', produtos = produtos)
+    return redirect('/finalizar')
+    
     
 @app.route('/finalizar')
 def finalizar():
-    #cart['valor']=float(cart['valor'])
-    total= cart['valor']
+    total_produto= (cart['Quantidade'].astype(float)*cart['valor'].astype(float))
+    total= (cart['Quantidade'].astype(float)*cart['valor'].astype(float)).sum()
     return render_template('Checkout.html' ,cart =cart, total = total)
     
 if __name__ == "__main__":

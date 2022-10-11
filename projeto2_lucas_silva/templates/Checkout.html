@@ -35,14 +35,14 @@
                         <div class="media align-items-center">
                           <img src="imagens/icone_logo.png" class="d-block ui-w-40 ui-bordered mr-4" alt="">
                           <div >
-                            <a href="#" class="d-block text-dark">{{row['Produto']}}</a>
+                            <a href="#" class="d-block text-dark">{{index}}</a>
                           </div>
                         </div>
                       </td>
                       <td class="text-right font-weight-semibold align-middle p-4">{{row['valor']}}</td>
                       <td class="align-middle p-4"><input type="number" class="form-control text-center" value="{{row['Quantidade']}}"></td>
                       <td class="text-right font-weight-semibold align-middle p-4">{{row['valor']}}</td>
-                      <td class="text-center align-middle px-0"><a href="produto_excluido/{{row['Produto']}}" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                      <td class="text-center align-middle px-0"><a href="produto_excluido/{{index}}" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
                     </tr>          
                     {% endfor %} 
                   </tbody>
