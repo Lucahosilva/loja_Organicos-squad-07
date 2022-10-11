@@ -8,11 +8,13 @@
     <title>Carrinho</title>
 </head>
 <body>
-{% for index,row in catalogo.iterrows()%}
+    
+<div id="vitrine">
+    {% for index,row in catalogo.iterrows()%}
 
     <div class="col-md-4">
         <div class="card mb-4 shadow-sm">
-          <img class="card-img-top" src="imagens/icone_logo.png" alt="Card image cap">
+          <img class="card-img-top" src="/static/frutas.png" width="500px" alt="Card image cap">
           <div class="card-body">
             <p class="card-text" id="{{row['produtos']}}">{{row['produtos']}}</p>
             <div class="d-flex justify-content-between align-items-center">
@@ -31,6 +33,7 @@
       <div>
         <a href="/carrinho/{{pag-1}}"><button type="button" class="btn btn-sm btn-outline-secondary">Pagina anterior</button></a><a href="/carrinho/{{pag+1}}"><button type="button" class="btn btn-sm btn-outline-secondary">Proxima pagina</button></a>
       </div>
+</div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
 </body>
