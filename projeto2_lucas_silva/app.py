@@ -40,8 +40,10 @@ def finalizar():
     if len(argumentos) == 0:
         for index, row in cart.iterrows():
             cart.loc[index, "total"] = float(row["valor"]) * float(row["Quantidade"])
+            cart.loc[index,"Quantidade"] = argumentos['qtd']
     else: 
         for key in argumentos:
+            cart.loc[key,"Quantidade"] = argumentos[key]
             cart.loc[key, "total"] = float(argumentos[key]) * float(cart.loc[key,"valor"])
     
     total_produto= (cart['Quantidade'].astype(float)*cart['valor'].astype(float))
