@@ -6,7 +6,7 @@ import time
 app = Flask(__name__)
 app.secret_key = 'super secret'
 catalogo = pd.read_csv('catalogo.csv', index_col='produtos')
-itens_deletados = []
+itens_deletados = pd.read_csv('itens_deletados.csv', index_col='produtos')
 
 @app.route('/cadastro')
 def cadastro():
@@ -41,7 +41,14 @@ def altera_item():
 
 @app.route('/deletar_produto/<string:nome_produto>')
 def deletar(nome_produto):
-    itens_deletados.append(catalogo.drop(nome_produto, inplace=True))
+
+    quantidade = catalogo.loc[nome_produto, 'quantidade']
+    preco = catalogo.loc[nome_produto, 'valor']
+    itens_deletados.loc[nome_produto] = [quantidade, preco]
+
+    catalogo.drop(nome_produto, inplace=True)
+
+    itens_deletados.to_csv('itens_deletados.csv')
     catalogo.to_csv('catalogo.csv')
     flash(f'Produto {nome_produto} Deletado !', 'alert delete-sucess')
     return redirect('/cadastro')
@@ -73,6 +80,33 @@ def pesquisa():
     return render_template('cadastro.html',catalogo = mascara)
    
    
+@app.route('/recuperacao')
+def recove():
+    return render_template('recuperacao_prod.html',itens_deletados = itens_deletados)
+
+@app.route('/recuperacao_pesquisa')
+def pesquisa_recover():
+    argumentos = request.args.to_dict()
+    mascara = itens_deletados[itens_deletados.index.str.contains(argumentos['pesquisa'])]
+    return render_template('recuperacao_prod.html',itens_deletados = mascara)
+
+@app.route('/recuper_para_cad/<id>')
+def restauracao(id):
+
+    quantidade = itens_deletados.loc[id, 'quantidade']
+    preco = itens_deletados.loc[id, 'valor']
+
+    catalogo.loc[id] = [quantidade, preco]
+
+    itens_deletados.drop(id, inplace=True)
+
+    itens_deletados.to_csv('itens_deletados.csv')
+    catalogo.to_csv('catalogo.csv')
+
+    flash(f'Produto {id} Recuperado com sucesso !', 'alert alert-success')
+    return redirect('/recuperacao')
+
+
 # rotas divino 
 
 @app.route('/listar')

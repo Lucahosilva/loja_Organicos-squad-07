@@ -1,0 +1,217 @@
+produtos,quantidade,valor
+Amendoim-da-mata,17.0,3.0
+Arroz-selvagem,45.0,2.5
+Azeitona,27.0,4.5
+Açafrão,11.0,5.0
+Açafrão,8.0,4.0
+Acelga,27.0,0.5
+Acelga-chinesa,14.0,4.5
+Agave-caribenho,28.0,3.5
+Agrião,4.0,2.5
+Agrião-do-líbano,58.0,2.0
+Aipo,15.0,5.0
+Alcachofra,6.0,1.5
+Alcaparra,44.0,2.0
+Alecrim,12.0,0.5
+Alface,57.0,1.0
+Alfafa (broto),35.0,4.5
+Alfavaca,39.0,2.5
+Alho-poró,24.0,0.5
+Almeirão,25.0,1.5
+Aspargo,49.0,3.0
+Azedinha,51.0,3.0
+Baroa,33.0,2.0
+Batata,41.0,3.0
+Batata-doce,27.0,0.5
+Berdana,12.0,1.5
+Beterraba,53.0,0.5
+Batata-doce (folha),41.0,2.0
+Beldroega,43.0,4.5
+Beldroega-grande,15.0,2.0
+Beldroegão,28.0,3.0
+Berdana (folha),12.0,1.5
+Bertalha,38.0,2.5
+Bertalha-coração,43.0,1.0
+Bredo,25.0,4.5
+Brócolis,6.0,3.5
+Cabotchan,36.0,4.5
+Cará,43.0,1.0
+Cará-do-ar,10.0,1.5
+Cará-moela,45.0,4.5
+Castanha-de-baru,13.0,4.0
+Castanha-de-caju,51.0,5.0
+Castanha-de-macaco,45.0,3.0
+Castanha-do-maranhão,16.0,3.5
+Castanha-do-pará,25.0,1.5
+Castanheiro-do-mato,39.0,3.5
+Caxi,16.0,1.0
+Cebola,53.0,1.0
+Celósia (sementes),47.0,1.5
+Cenoura,25.0,1.0
+Centeio,18.0,5.0
+Cevada,21.0,5.0
+Chalota,12.0,2.5
+Chia,23.0,3.0
+Chichá,35.0,2.0
+Chichá-do-norte,9.0,2.5
+Chuchu,54.0,0.5
+Couve-nabo,36.0,1.0
+Couve-rábano,47.0,4.5
+Cumaru,59.0,2.5
+Cambuquira,52.0,2.0
+Capeba,5.0,3.5
+Capiçoba,20.0,3.0
+Capuchinha,22.0,3.5
+Caruru,50.0,2.5
+Caruru-manteiga,35.0,5.0
+Catalonha,1.0,3.5
+Cebolinha,30.0,2.5
+Celósia,25.0,5.0
+Chaya,50.0,2.5
+Chicória,53.0,2.5
+Coentro,17.0,0.5
+Comelina,51.0,5.0
+Couve,1.0,0.5
+Couve-de-bruxelas,27.0,3.0
+Couve-de-milão,37.0,4.5
+Couve-de-saboia,24.0,4.0
+Couve-flor,30.0,4.5
+Couve-lombarda,36.0,0.5
+Couve-nabo (folha),43.0,5.0
+Couve-rábano,19.0,2.5
+Couvinha,45.0,4.0
+Dendê Dill,39.0,4.0
+Ervilha,26.0,2.5
+Ervilha-de-pombo,19.0,0.5
+Escorcioneira,21.0,4.5
+Echalota,0.0,5.0
+Embaúba,38.0,3.5
+Endívia,33.0,1.0
+Erva-cidreira,2.0,5.0
+Erva-doce,7.0,5.0
+Erva-luísa,39.0,1.5
+Erva-mate,5.0,1.5
+Escarola,11.0,5.0
+Espinafre,14.0,1.0
+Espinafre-de-okinawa,25.0,2.5
+Estragão,8.0,3.5
+Fava,40.0,1.0
+Feijão,4.0,1.5
+Feijão-andu,48.0,3.0
+Feijão-azuki,35.0,3.5
+Feijão-boer,59.0,2.0
+Fruta-pão,59.0,5.0
+Feijão (broto),32.0,5.0
+Funcho,22.0,2.0
+Gengibre,38.0,4.5
+Gergelim,34.0,3.5
+Girassol (semente),23.0,1.5
+Gobô,0.0,4.0
+Goya,53.0,1.0
+Grão-de-bico,51.0,0.5
+Grumixama,53.0,1.5
+Guandu,20.0,1.0
+Gergelim (broto),4.0,3.0
+Gobô (folha),7.0,2.5
+Grão-de-bico (broto),37.0,2.5
+Guasca,34.0,2.5
+Hibisco,24.0,3.5
+Hortelã,40.0,1.5
+Inajá,4.0,5.0
+Inhame Inhame (folha),31.0,4.5
+Jaca verde,41.0,2.5
+Jalapeño,58.0,2.0
+Jicama,33.0,3.0
+Labaca,23.0,1.5
+Lentilha,39.0,3.5
+Linhaça,21.0,5.0
+Lírio-do-brejo,36.0,3.5
+Labaca (folha),57.0,4.5
+Lambari-da-horta,33.0,4.5
+Lentilha (broto),9.0,5.0
+Linhaça (broto),5.0,4.5
+Louro,14.0,1.5
+Macassá,52.0,4.5
+Malagueta,3.0,2.5
+Malte,28.0,1.0
+Mandioca,57.0,1.0
+Mandioquinha,34.0,2.0
+Maxixe,14.0,2.0
+Mendubiguaçu,53.0,1.5
+Milho,34.0,5.0
+Mitsubá,23.0,4.5
+Mogango,37.0,3.5
+Monguba,29.0,4.5
+Moranga,45.0,3.5
+Madressilva,2.0,1.0
+Major-gomes,47.0,4.5
+Manjericão,53.0,4.5
+Manjerona,53.0,1.0
+Maria-gorda,45.0,4.5
+Mostarda,4.0,1.0
+Nabo,23.0,0.5
+Nabo-da-suécia,53.0,3.0
+Nabo-mexicano,29.0,0.5
+Nabo-sueco,47.0,3.0
+Noz,21.0,5.0
+Nozes-da-macadâmia,27.0,4.0
+Nabo-da-suécia (folha),6.0,2.0
+Nabo-sueco (folha),17.0,3.0
+Oliva,42.0,3.5
+Ora-pro-nobis,42.0,1.5
+Orégano,30.0,1.5
+Orelha-de-coelho,23.0,2.5
+Palmito,19.0,2.5
+Paru,10.0,1.0
+Pau-rei,39.0,0.5
+Pé-de-anta,21.0,2.5
+Pelega,21.0,3.0
+Pepino,6.0,3.0
+Pepino-japonês,50.0,1.5
+Pequi,28.0,3.0
+Pimenta,49.0,2.0
+Pimentão,14.0,2.5
+Pinhão,44.0,4.5
+Pistache,59.0,3.5
+Peixinho-da-horta,9.0,2.5
+Palma,24.0,4.5
+Picão,30.0,2.0
+Quiabo,44.0,3.5
+Quinoa Quina,4.0,3.0
+Rabanete,7.0,3.0
+Rábano,43.0,4.0
+Rábano-silvestre,31.0,1.5
+Raiz-forte,45.0,3.0
+Rutabaga,59.0,2.0
+Radicchio,40.0,3.0
+Repolho,46.0,1.5
+Rúcula,45.0,1.0
+Ruibarbo,30.0,5.0
+Rutabaga (folha),44.0,1.0
+Shissô (sementes),10.0,5.0
+Soja,38.0,5.0
+Sorgo,45.0,5.0
+Salsa,5.0,0.5
+Salsão,5.0,5.0
+Sálvia,32.0,2.0
+Serralha,27.0,3.5
+Shissô,2.0,3.0
+Soja (broto),12.0,2.5
+Taioba (batata),20.0,4.5
+Taro,40.0,3.5
+Tomate,7.0,2.0
+Tomate-cereja,9.0,5.0
+Tonka,52.0,3.0
+Trigo,52.0,2.5
+Tupinambo,40.0,2.0
+Taioba,29.0,2.0
+Taro (folha),34.0,1.5
+Tingensai,27.0,0.5
+Tomilho,48.0,1.5
+Trapoeraba,22.0,4.5
+Trevo,50.0,0.5
+Trigo,5.0,3.5
+Urucum Urtiga,27.0,2.5
+Vagem Vinagreira,56.0,2.5
+Wasabi,36.0,0.5
+Avelã,27.0,0.5

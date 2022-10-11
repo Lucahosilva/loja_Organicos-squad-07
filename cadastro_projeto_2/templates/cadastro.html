@@ -27,7 +27,7 @@
             <h1 class="h1-form-add">Cadastro de produto</h1>
                 <form class="form-add" action="/listar" method="get">
                     <div>
-                        <img src="/static/img/logo.png" height="80px" >
+                        <img src="/static/img/logo.png" height="80px">
                     </div>
                     <div class="linha-form">
                         <label class="label-add " for="Cadastro">Cadastro</label>
@@ -47,20 +47,20 @@
                 </form>
     </fieldset>
     </div>
-    <h2 class="h1-form-add">Produtos cadastrados</h2>
+        <h2 class="h1-title-cad">Produtos cadastrados<div class="rcv-btn-row"><a href="/recuperacao" class="btn-rcv"><img src="/static/img/recuperaca-ico.png" height="30px" alt="icone recuperacao"><h2>Recuperar itens Deletados</h2> </a></div></h2>
     <div class="pesquisa-flex">
         <form action="/cadastro_pesquisa"class="col-12 col-lg-auto mb-3 mb-lg-0 pesquisa" role="search" method="GET">
             <input type="search" name="pesquisa"class="form-control" placeholder="Pesquise aqui" aria-label="Search">
         </form>
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle btn-filter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Filtrar por...
             </button>
                 <ul class="dropdown-menu dropdown-menu-dark">
                     <li><a class="dropdown-item" href="/cadastro_filtro_preco_crescente">Preço crescente</a></li>
                     <li><a class="dropdown-item" href="/cadastro_filtro_preco_decrescente">Preço decrescente</a></li>
-                    <li><a class="dropdown-item" href="/cadastro_filtro_quantidade_crescente">Quantidade menor ao maior</a></li>
-                    <li><a class="dropdown-item" href="/cadastro_filtro_quantidade_decrescente">Quantidade maior ao menor</a></li>
+                    <li><a class="dropdown-item" href="/cadastro_filtro_quantidade_crescente">Quantidade crescente</a></li>
+                    <li><a class="dropdown-item" href="/cadastro_filtro_quantidade_decrescente">Quantidade decrescente</a></li>
                     <li><a class="dropdown-item" href="/cadastro_filtro_alfabetico">Ordem alfabética</a></li>
                 </ul>
         </div>
