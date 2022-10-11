@@ -13,7 +13,7 @@ total = 0
 @app.route('/carrinho/<pag>')
 def carrinho(pag):
     pag=int(pag)
-    catalogo_pag = catalogo.iloc[6*(pag-1):6*pag]
+    catalogo_pag = catalogo.iloc[12*(pag-1):12*pag]
     return render_template('carrinho.html', catalogo = catalogo_pag, pag=pag)
 
 @app.route('/produto_adicionado/<produtos>/<valor>')
