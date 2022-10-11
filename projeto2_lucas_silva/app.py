@@ -35,8 +35,17 @@ def excluir(produtos):
     
 @app.route('/finalizar')
 def finalizar():
+    argumentos = request.args.to_dict()
+    
+    if len(argumentos) == 0:
+        for index, row in cart.iterrows():
+            cart.loc[index, "total"] = float(row["valor"]) * float(row["Quantidade"])
+    else: 
+        for key in argumentos:
+            cart.loc[key, "total"] = float(argumentos[key]) * float(cart.loc[key,"valor"])
+    
     total_produto= (cart['Quantidade'].astype(float)*cart['valor'].astype(float))
-    total= (cart['Quantidade'].astype(float)*cart['valor'].astype(float)).sum()
+    total= cart["total"].astype(float).sum()
     return render_template('Checkout.html' ,cart =cart, total = total)
     
 if __name__ == "__main__":
