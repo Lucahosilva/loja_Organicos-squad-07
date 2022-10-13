@@ -5,8 +5,8 @@ import pandas as pd
 
 
 app = Flask(__name__)
-catalogo = pd.read_csv('projeto2_lucas_silva/catalogo.csv', sep=',')
-cart = pd.DataFrame({"Produto":[],"valor":[], "Quantidade":[]})
+catalogo = pd.read_csv('catalogo.csv', sep=',')
+cart = pd.DataFrame({"Produto":[],"valor":[], "Quantidade":[], "total":[]})
 cart.set_index('Produto', inplace = True)
 total = 0
 
@@ -19,17 +19,17 @@ def carrinho(pag):
 @app.route('/produto_adicionado/<produtos>/<valor>')
 def teste(produtos , valor):
     if produtos in cart.index.values:
-        cart.loc[produtos,"Quantidade"] += 1 
+        cart.loc[produtos,"Quantidade"] = float(cart.loc[produtos,"Quantidade"]) + 1 
     else:
-        cart.loc[produtos] =  [valor, 1 ]
-    cart.to_csv('projeto2_lucas_silva/cart.csv')       
+        cart.loc[produtos] =  [valor, 1, 0]
+    cart.to_csv('cart.csv')       
     return redirect(request.referrer)
     #return redirect ('/carrinho/1')
 
 @app.route('/produto_excluido/<produtos>')
 def excluir(produtos):
     cart.drop(produtos, inplace = True)
-    cart.to_csv('projeto2_lucas_silva/cart.csv')  
+    cart.to_csv('cart.csv')  
     return redirect('/finalizar')
     
     
@@ -39,8 +39,7 @@ def finalizar():
     
     if len(argumentos) == 0:
         for index, row in cart.iterrows():
-            cart.loc[index, "total"] = float(row["valor"]) * float(row["Quantidade"])
-            cart.loc[index,"Quantidade"] = argumentos['qtd']
+            cart.loc[index, "total"] = float(row["valor"]) * float(row["Quantidade"])      
     else: 
         for key in argumentos:
             cart.loc[key,"Quantidade"] = argumentos[key]
