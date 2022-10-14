@@ -175,10 +175,11 @@ q:before, q:after {
     --bs-alert-border-color: #badbcc;
 }
 
-.puff-out-center{animation:puff-out-center 3s cubic-bezier(.165,.84,.44,1.000) 2s both}
+.puff-out-center{animation:puff-out-center 3s cubic-bezier(.165,.84,.44,1.000) 2s both;
+  position: absolute}
 
 
-@keyframes puff-out-center{0%{transform:scale(1);filter:blur(0);opacity:1}100%{transform:scale(2);filter:blur(4px);opacity:0}}
+@keyframes puff-out-center{0%{transform:scale(1) translateX(580px);filter:blur(0);opacity:1}100%{transform:scale(2);filter:blur(4px);opacity:0}}
 
 .overlay {
     position: fixed;
@@ -248,6 +249,13 @@ q:before, q:after {
     padding: 1em;
   }
 
+  .banner{
+    background: url(../static/img/banner.jpeg)center;
+    height: 60vh;
+    background-size: cover;
+    background-position: 80% 80%;
+  }
+
   .border-bottom {
     border-bottom: unset !important;
 }
@@ -309,10 +317,6 @@ a.btn-bck:hover, .btn-rcv:hover {
   margin-top: 10px;
   background: -webkit-linear-gradient(left, rgba(147,184,189,0) 0%,rgb(167 208 68) 20%,rgb(169 207 68) 53%,rgb(169 207 70) 79%,rgba(147,184,189,0) 100%);
   background: linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
-}
-.alert{
-  position: absolute;
-  width: 100%;
 }
 /* CSS GABRIEL */
 
