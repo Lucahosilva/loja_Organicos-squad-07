@@ -11,7 +11,8 @@ itens_deletados = pd.read_csv('itens_deletados.csv', index_col='produtos')
 cart = pd.read_csv('cart.csv', sep=',', index_col='Produto')
 total = 0
 
-@app.route('/')
+
+@app.route('/') 
 def home():
     return redirect('/hortifruti/1')
 
@@ -138,6 +139,11 @@ def vitrine(pag):
     
     total = cart["total"].astype(float).sum()
 
+    if pag < 1:
+        return redirect('/hortifruti/1')
+    elif len(catalogo_pag) == 0:
+        return redirect(request.referrer)
+
     return render_template('hortifruti.html',   catalogo = catalogo_pag, 
                                                 pag=pag, 
                                                 total = total)
@@ -208,6 +214,36 @@ def hortifruti_pesquisa():
                                                 pag=1, 
                                                 total = total)
     
+#filtro vendas
+@app.route('/vendas_filtro_preco_crescente')
+def vendas_filtro_pcrescente():
+    global catalogo
+    catalogo = catalogo.sort_values(by=['valor'])
+    return vitrine(1)
+
+@app.route('/vendas_filtro_preco_decrescente')
+def vendas_filtro_pdecrescente():
+    global catalogo
+    catalogo = catalogo.sort_values(by=['valor'], ascending=False)
+    return vitrine(1)
+
+@app.route('/vendas_filtro_quantidade_decrescente')
+def vendas_filtro_qcrescente():
+    global catalogo
+    catalogo = catalogo.sort_values(by=['quantidade'], ascending=False)
+    return vitrine(1)
+
+@app.route('/vendas_filtro_quantidade_crescente')
+def vendas_filtro_qdecrescente():
+    global catalogo
+    catalogo = catalogo.sort_values(by=['quantidade'])
+    return vitrine(1)
+
+@app.route('/vendas_filtro_alfabetico')
+def vendas_filtro_alfabetico():
+    global catalogo
+    catalogo = catalogo.sort_index()
+    return vitrine(1)
 
 
 if __name__ == "__main__":
