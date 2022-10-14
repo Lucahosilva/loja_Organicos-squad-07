@@ -2,11 +2,18 @@ from flask import Flask, redirect, render_template, request, url_for
 from flask.helpers import flash
 import pandas as pd
 import time
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = 'super secret'
 catalogo = pd.read_csv('catalogo.csv', index_col='produtos')
 itens_deletados = pd.read_csv('itens_deletados.csv', index_col='produtos')
+cart = pd.read_csv('cart.csv', sep=',', index_col='Produto')
+total = 0
+
+@app.route('/')
+def home():
+    return redirect('/hortifruti/1')
 
 @app.route('/cadastro')
 def cadastro():
@@ -104,7 +111,7 @@ def restauracao(id):
     catalogo.to_csv('catalogo.csv')
 
     flash(f'Produto {id} Recuperado com sucesso !', 'alert alert-success')
-    return redirect('/recuperacao')
+    return redirect(request.referrer)
 
 
 # rotas divino 
@@ -120,7 +127,93 @@ def listar():
     flash(f'{produto} adicionado com sucesso !', 'alert alert-success')
     return redirect('/cadastro')
 
+#rotas Lucas Henrique
+@app.route('/hortifruti/<pag>')
+def vitrine(pag):
+    pag=int(pag)
+    catalogo_pag = catalogo.iloc[12*(pag-1):12*pag]
+
+    for index, row in cart.iterrows():
+            cart.loc[index, "total"] = float(row["valor"]) * float(row["Quantidade"])
+    
+    total = cart["total"].astype(float).sum()
+
+    return render_template('hortifruti.html',   catalogo = catalogo_pag, 
+                                                pag=pag, 
+                                                total = total)
+
+@app.route('/produto_adicionado/<produtos>/<valor>')
+def teste(produtos , valor):
+
+    if produtos in cart.index.values:
+        cart.loc[produtos,"Quantidade"] = float(cart.loc[produtos,"Quantidade"]) + 1 
+    else:
+        cart.loc[produtos] =  [valor, 1, 0]
+
+    cart.to_csv('cart.csv')
+
+    flash(f'{produtos} adicionado !', 'alert alert-success')     
+
+    return redirect(request.referrer)
+
+@app.route('/produto_excluido/<produtos>')
+def excluir(produtos):
+    cart.drop(produtos, inplace = True)
+    cart.to_csv('cart.csv')
+    flash(f'{produtos} Removido !', 'alert delete-sucess')
+    return redirect('/finalizar')
+  
+@app.route('/finalizar')
+def finalizar():
+    argumentos = request.args.to_dict()
+    
+    if len(argumentos) == 0:
+        for index, row in cart.iterrows():
+            cart.loc[index, "total"] = float(row["valor"]) * float(row["Quantidade"])      
+    else: 
+        for key in argumentos:
+            cart.loc[key,"Quantidade"] = argumentos[key]
+            cart.loc[key, "total"] = float(argumentos[key]) * float(cart.loc[key,"valor"])
+
+    total = cart["total"].astype(float).sum()
+
+    return render_template('Checkout.html' ,    cart =cart, 
+                                                total = total)
+
+@app.route('/obrigado')
+def historico():
+    df_historico = pd.read_csv('cart.csv', sep=',', index_col='Produto')
+    df_historico['data']= datetime.today()
+    df_sales =pd.read_csv('sales.csv',  sep=',', index_col='Produto')
+    result = [df_historico, df_sales]
+    df_result =pd.concat(result)
+    df_result.to_csv('sales.csv')
+       
+    return 'deu certo'
+
+@app.route('/hortifruti_pesquisa')
+def hortifruti_pesquisa():
+    argumentos = request.args.to_dict()
+    mascara = catalogo[catalogo.index.str.contains(argumentos['pesquisa'])]
+
+    for index, row in cart.iterrows():
+            cart.loc[index, "total"] = float(row["valor"]) * float(row["Quantidade"])
+    
+    total = cart["total"].astype(float).sum()
+
+    if len(mascara) == 0:
+        return render_template('pesquisa_null.html')
+
+    return render_template('hortifruti.html',   catalogo = mascara, 
+                                                pag=1, 
+                                                total = total)
+    
+
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+
 

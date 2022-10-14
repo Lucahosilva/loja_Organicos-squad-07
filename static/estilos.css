@@ -23,6 +23,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
 	line-height: 1;
 }
@@ -59,6 +62,12 @@ q:before, q:after {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+}
+
+.pesquisa-flex-vendas{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .ms-sm-auto {
@@ -300,4 +309,235 @@ a.btn-bck:hover, .btn-rcv:hover {
   margin-top: 10px;
   background: -webkit-linear-gradient(left, rgba(147,184,189,0) 0%,rgb(167 208 68) 20%,rgb(169 207 68) 53%,rgb(169 207 70) 79%,rgba(147,184,189,0) 100%);
   background: linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
+}
+.alert{
+  position: absolute;
+  width: 100%;
+}
+/* CSS GABRIEL */
+
+.nav-menu, .social-ico{
+  text-decoration: none;
+  margin: 20px;
+  color: black;
+}
+
+#logo_loja{
+  width: 200px;
+  height: auto;
+}
+
+#itens-menu, .socials{
+  list-style: none;
+  padding: 0;
+  overflow: hidden;
+  transition: all .5s;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  background-color: #fff8f8;
+  padding: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  border-bottom: solid 2px #000;
+  width: 100%;
+  display: flex;
+}
+
+.texto-foot{
+  color: rgb(26, 19, 19);
+}
+
+#itens-menu>li, .socials>li{
+  padding: 0 20px;
+}
+
+.botao-menu{
+  background-color: transparent;
+    border: none;
+    color: rgb(22, 13, 13);
+    font-size: 36px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: none;
+}
+
+.nav-menu:hover,
+.botao-menu:hover,
+.social-ico:hover{
+    cursor: pointer;
+    opacity: 0.8;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#simbolo_loja {
+  width: 80px;
+  height: auto;
+  align-items: left;
+}
+
+footer  { 
+  position: absolute;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background: rgb(243, 240, 240);
+  box-sizing: border-box;
+  font-family: "Open Sans";
+  padding-top: 40px;
+  height: auto;
+  color: rgb(247, 242, 245);
+}
+
+.footer-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-content p{
+  max-width: 500px;
+  margin: 10px auto;
+  line-height: 28px;
+  font-size: 14px;
+}
+.socials{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+  font-size: 30px;
+}
+.socials li{
+  margin: 0 10px;
+}
+.socials a{
+  text-decoration: none;
+  color: rgb(18, 11, 11);
+}
+.socials a i{
+  font-size: 2.1rem;
+  transition: color .4s ease;
+
+}
+.socials a:hover i{
+  color: aqua;
+}
+
+.footer-bottom{
+ 
+  width: 100%;
+  padding: 20px;
+  text-align: auto;
+  align-items: auto;
+}
+.footer-bottom p{
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+}
+.footer-bottom span{
+  text-transform: uppercase;
+  opacity: .4;
+  font-weight: 200;
+}
+
+@media (max-width: 700px) {
+
+  nav,
+  #itens-menu,
+  .socials {
+      flex-direction: column;
+  }
+
+  #itens-menu,
+  .socials {
+      text-align: center;
+      margin: 0;
+      height: 0;
+  }
+
+  nav {
+      padding: 0;
+      align-items: flex-start;
+  }
+
+  .botao-menu {
+      display: flex;
+  }
+
+  #itens-menu>li, .socials>li,
+  #itens-menu, .socials {
+      width: 100%;
+  }
+
+  #itens-menu.responsivo {
+      height: 260px;
+  }
+}
+
+/*css LUcas Henrique */
+
+.ui-w-40 {
+  width: 40px !important;
+  height: auto;
+}
+
+.card{
+  box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);    
+}
+
+.ui-product-color {
+  display: inline-block;
+  overflow: hidden;
+  margin: .144em;
+  width: .875rem;
+  height: .875rem;
+  border-radius: 10rem;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
+  vertical-align: middle;
+}
+
+.qtd-btn{
+  display: flex;
+}
+
+.p-4{
+  text-align: center;
+}
+
+#vitrine {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.body-vendas{
+  margin-top:20px;
+  background:#eee;
+}
+
+.nav-vendas{
+  display: flex;
+  align-items: center;
+}
+
+.h1-pesquisa-null{
+  position: absolute;
+  font-size: 400%;
+  transform: translateX(40px) translateY(330px);
+}
+
+.pesquisa-null_main{
+  height: 80vh;
+  background-color: #f8f9faa8;
 }
