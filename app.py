@@ -194,6 +194,9 @@ def historico():
     result = [df_historico, df_sales]
     df_result =pd.concat(result)
     df_result.to_csv('sales.csv')
+    indexes = cart['Quantidade']>0
+    zerar_cart = cart[indexes].index
+    cart.drop(zerar_cart, axis = 0, inplace = True)
        
     return 'deu certo'
 
