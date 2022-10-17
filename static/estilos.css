@@ -17,6 +17,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+  text-decoration: none;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -55,7 +56,7 @@ q:before, q:after {
 }
 
 .pesquisa{
-    width:80vw;
+    width:88%;
 }
 
 .pesquisa-flex{
@@ -66,8 +67,9 @@ q:before, q:after {
 
 .pesquisa-flex-vendas{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 20px;
+  margin-left: 20px;
 }
 
 .ms-sm-auto {
@@ -251,7 +253,7 @@ q:before, q:after {
 
   .banner{
     background: url(../static/img/banner.jpeg)center;
-    height: 60vh;
+    height: 600px;
     background-size: cover;
     background-position: 80% 80%;
   }
@@ -344,7 +346,7 @@ a.btn-bck:hover, .btn-rcv:hover {
 
 nav {
   background-color: #fff8f8;
-  padding: 0 20px;
+  padding: 0 40px;
   justify-content: space-between;
   align-items: center;
   top: 0;
@@ -397,6 +399,7 @@ footer  {
   padding-top: 40px;
   height: auto;
   color: rgb(247, 242, 245);
+  margin-top: 40px;
 }
 
 .footer-content{
@@ -497,7 +500,8 @@ footer  {
 }
 
 .card{
-  box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);    
+  box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);  
+  margin: 20px;  
 }
 
 .ui-product-color {
@@ -544,4 +548,42 @@ footer  {
 .pesquisa-null_main{
   height: 80vh;
   background-color: #f8f9faa8;
+}
+
+.card-text{
+  padding: 7px;
+}
+
+.btn-pag{
+  margin-left: 20px;
+}
+
+.dropdown-toggle{
+  margin-left: 10px;
+}
+
+.btn-finalizar{
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.btn-cart-end{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+/* css will -------------------------------------*/
+
+.scroll_table{
+  height: 540px;
+  overflow: auto;
+}
+
+.card-text{
+  margin-left: 15px
+}
+
+.card-relatorio{
+  margin: 10px;
 }

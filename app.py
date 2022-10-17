@@ -246,6 +246,31 @@ def vendas_filtro_alfabetico():
     return vitrine(1)
 
 
+relat = pd.read_csv('./sales.csv')
+df = pd.DataFrame(relat)
+df_relat = pd.DataFrame(catalogo)
+
+@app.route('/relatorio')
+def relatorio():
+    mais_prod = df_relat.nlargest(3, 'quantidade')
+    menos_prod = df_relat.nsmallest(3, 'quantidade')
+
+    mais_vend = df.groupby('Produto').sum().nlargest(5, 'Quantidade').round()
+    menos_vend = df.groupby('Produto').sum().nsmallest(5, 'Quantidade').round()
+
+    print(menos_vend)
+    total_vendas = df['valor'].sum()
+    ticke_medio = total_vendas / len(df)
+    return render_template('relatorio.html', 
+                                df= df, 
+                                mais_vend= mais_vend, 
+                                menos_vend= menos_vend, 
+                                ticke_medio= ticke_medio, 
+                                total_vendas=total_vendas,
+                                mais_prod= mais_prod,
+                                menos_prod= menos_prod)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
 

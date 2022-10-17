@@ -2,6 +2,7 @@
 {% extends "base_vendas.html" %}
     {% block content %} 
       <h2 class="h1-title-cad">Bem vindo à Organic's</h2>
+      <div class="container">
         <div class="pesquisa-flex-vendas">
             <form action="/hortifruti_pesquisa"class="col-12 col-lg-auto mb-3 mb-lg-0 pesquisa" role="search" method="GET">
                 <input type="search" name="pesquisa"class="form-control" placeholder="Pesquise aqui" aria-label="Search">
@@ -19,13 +20,18 @@
                     </ul>
               </div>
         </div>   
-        <div>
-          <a href="/hortifruti/{{pag-1}}"><button type="button" class="btn btn-sm btn-outline-secondary">Pagina anterior</button></a><a href="/hortifruti/{{pag+1}}"><button type="button" class="btn btn-sm btn-outline-secondary">Proxima pagina</button></a>
+        <div class="btn-pag">
+          <a href="/hortifruti/{{pag-1}}">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Pagina anterior</button>
+          </a>
+          <a href="/hortifruti/{{pag+1}}">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Proxima pagina</button>
+          </a>
         </div>
         <div id="vitrine">
               {% for index,row in catalogo.iterrows()%}
 
-              <div class="col-md-4">
+              <div class="col-xl-3 col-md-6">
                   <div class="card mb-4 shadow-sm">
                     <img class="card-img-top" src="/static/img/frutas.png" width="500px" alt="Card image cap">
                     <div class="card-body">
@@ -41,11 +47,16 @@
                 </div>
                 {% endfor %}
           </div>
-          <div>
+          <div class="btn-finalizar">
             <a href="/finalizar"><button type="button" class="btn btn-sm btn-outline-secondary">Finalizar</button></a>
           </div>
-          <div>
-            <a href="/hortifruti/{{pag-1}}"><button type="button" class="btn btn-sm btn-outline-secondary">Pagina anterior</button></a><a href="/hortifruti/{{pag+1}}"><button type="button" class="btn btn-sm btn-outline-secondary">Proxima pagina</button></a>
+          <div class="btn-pag">
+            <a href="/hortifruti/{{pag-1}}">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Pagina anterior</button>
+            </a>
+            <a href="/hortifruti/{{pag+1}}">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Proxima pagina</button>
+            </a>
           </div>
     </div>
 {% endblock %}
