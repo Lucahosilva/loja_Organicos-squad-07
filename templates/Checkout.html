@@ -26,7 +26,7 @@
                         <tr>
                           <td class="p-4">
                             <div class="media align-items-center">
-                              <img src="imagens/icone_logo.png" class="d-block ui-w-40 ui-bordered mr-4" alt="">
+                              <img src="../static/img/icone_logo.png" class="d-block ui-w-40 ui-bordered mr-4" alt="">
                               <div >
                                 <a href="#" class="d-block text-dark">{{index}}</a>
                               </div>
@@ -35,11 +35,11 @@
                           <td class="text-right font-weight-semibold align-middle p-4">{{row['valor']}}</td>
                             <form action="/finalizar" method="GET"><td class="align-middle p-4 qtd-btn">
                               <input type="number" name="{{index}}" class="form-control text-center" value="{{row['Quantidade']}}">
-                                <button type="submit"><img src="../static/soma.png" height="20px"></button>
+                                <button type="submit">➕</button>
                             </form>
                           </td>
                           <td class="text-right font-weight-semibold align-middle p-4">{{row['total']}}</td>
-                          <td class="text-center align-middle px-0"><a href="produto_excluido/{{index}}" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                          <td class="text-center align-middle px-0"><a href="produto_excluido/{{index}}" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">❌</a></td>
                         </tr>          
                         {% endfor %} 
                       </tbody>
@@ -47,22 +47,25 @@
                   </div>
                   <!-- / Shopping cart table -->
               
-                  <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
-
+                    <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
                       <div class="text-right mt-4">
                         <label class="text-muted font-weight-normal m-0">Total</label>
-                        <div class="text-large"><strong>{{[total]}}</strong></div>
+                        <div class="text-large">
+                          <strong>{{[total]}}</strong>
+                        </div>
                       </div>
                     </div>
+              
+                  <div class="container btn-cart-end">
+                    <a href="/hortifruti/1">
+                      <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>
+                    </a>
+                    <a href="/obrigado">
+                      <button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button>
+                    </a>
                   </div>
               
-                  <div class="float-right">
-                    <a href="/hortifruti/1"><button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button></a>
-                    <a href="/obrigado"><button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button></a>
-                  </div>
-              
-                </div>
-            </div>
+              </div>
         </div>
       </div>
 {% endblock %}
