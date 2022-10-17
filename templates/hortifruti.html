@@ -38,7 +38,9 @@
                       <p class="card-text" id="{{index}}">{{index}}</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <a href="/produto_adicionado/{{index}}/{{row['valor']}}"><button  class="btn btn-sm btn-outline-secondary" value="{{row['produtos']}}">Adicionar ao Carrinho</button></a>
+                          <a href="/produto_adicionado/{{index}}/{{row['valor']}}">
+                            <button  class="btn btn-sm btn-outline-secondary" value="{{row['produtos']}}">Adicionar ao Carrinho</button>
+                          </a>
                         </div>
                         <small class="text-muted">R${{row['valor']}}</small>
                       </div>
@@ -48,7 +50,9 @@
                 {% endfor %}
           </div>
           <div class="btn-finalizar">
-            <a href="/finalizar"><button type="button" class="btn btn-sm btn-outline-secondary">Finalizar</button></a>
+            <a href="/finalizar">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Finalizar</button>
+            </a>
           </div>
           <div class="btn-pag">
             <a href="/hortifruti/{{pag-1}}">
