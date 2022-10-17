@@ -58,7 +58,7 @@ def deletar(nome_produto):
 
     itens_deletados.to_csv('itens_deletados.csv')
     catalogo.to_csv('catalogo.csv')
-    flash(f'Produto {nome_produto} Deletado !', 'alert delete-sucess')
+    flash(f'Produto {nome_produto} Zerado no Estoque !', 'alert delete-sucess')
     return redirect('/cadastro')
 
 @app.route('/cadastro_filtro_preco_crescente')
@@ -192,13 +192,21 @@ def historico():
     df_historico['data']= datetime.today()
     df_sales =pd.read_csv('sales.csv',  sep=',', index_col='Produto')
     result = [df_historico, df_sales]
+
+    for index,row in cart.iterrows():
+        catalogo.loc[index, 'quantidade'] = catalogo.loc[index, 'quantidade'] - int(row['Quantidade'])
+        if catalogo.loc[index, 'quantidade'] <= 0:
+            deletar(index)
+        
+  
     df_result =pd.concat(result)
     df_result.to_csv('sales.csv')
-    indexes = cart['Quantidade']>0
-    zerar_cart = cart[indexes].index
-    cart.drop(zerar_cart, axis = 0, inplace = True)
-       
-    return 'deu certo'
+    indexes = cart['Quantidade'].astype(int) > 0
+    cart.drop(cart[indexes].index, axis = 0, inplace = True)
+    cart.to_csv('cart.csv')
+
+    flash('Obrigado pela preferência !', 'alert alert-success' )
+    return home()
 
 @app.route('/hortifruti_pesquisa')
 def hortifruti_pesquisa():

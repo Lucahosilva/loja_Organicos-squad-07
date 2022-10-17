@@ -30,18 +30,20 @@
                             <button class="btn btn-success" type="submit">Atualizar</button>
                     </fieldset>
                     </form>
-                        <a href="#popup1"><button class="btn btn-danger">Deletar</button></a>
+                        <a href="#popup1"><button class="btn btn-danger">Tirar do Estoque</button></a>
                     </div>
                         <div id="popup1" class="overlay">
                             <div class="popup">
-                                <h2>Deletar Produto</h2>
+                                <h2>Tirar do Estoque</h2>
                                 <a class="close" href="#">&times;</a>
                                 <div class="content">
-                                    Tem certeza que deseja deletar {{nome_produto}} ?
+                                    Tem certeza que deseja retirar {{nome_produto}} ?
+                                    <br>
+                                    <p>Este Produto não aparecerá mais no catálogo de vendas para os clientes.</p>
                                 </div>
                                 <div class="linha-del-btn">
                                     <a href="/cadastro"><button class="btn">Sair</button></a>
-                                    <a href="/deletar_produto/{{nome_produto}}"><button class="btn btn-danger">Deletar</button></a>
+                                    <a href="/deletar_produto/{{nome_produto}}"><button class="btn btn-danger">Tirar do Estoque</button></a>
                                 </div>
                             </div>
                         </div>
