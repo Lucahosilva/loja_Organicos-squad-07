@@ -42,6 +42,11 @@ q:before, q:after {
 	content: none;
 }
 
+.pesquisa-null{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .catalogo{
     display:flex;
@@ -531,7 +536,6 @@ footer  {
 
 .body-vendas{
   margin-top:20px;
-  background:#eee;
 }
 
 .nav-vendas{
@@ -540,9 +544,8 @@ footer  {
 }
 
 .h1-pesquisa-null{
-  position: absolute;
   font-size: 400%;
-  transform: translateX(40px) translateY(330px);
+  margin: 50px;
 }
 
 .pesquisa-null_main{
@@ -555,7 +558,9 @@ footer  {
 }
 
 .btn-pag{
-  margin-left: 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .dropdown-toggle{
@@ -564,6 +569,7 @@ footer  {
 
 .btn-finalizar{
   margin-left: 20px;
+  text-align: center;
   margin-bottom: 10px;
 }
 
