@@ -257,7 +257,7 @@ q:before, q:after {
   }
 
   .banner{
-    background: url(../static/img/banner.jpeg)center;
+    background: url(../static/img/banner.jpg)center;
     height: 600px;
     background-size: cover;
     background-position: 80% 80%;
@@ -278,6 +278,12 @@ q:before, q:after {
   position: absolute;
   left: 15%;
   margin: 1em;
+}
+
+.btn-chk{
+  border: none;
+  background-color: #fff;
+  padding: 0px;
 }
 
 a.btn-bck:hover, .btn-rcv:hover {
@@ -594,3 +600,8 @@ footer  {
 .card-relatorio{
   margin: 10px;
 }
+
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
+}
+

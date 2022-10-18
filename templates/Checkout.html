@@ -34,11 +34,11 @@
                           <td class="text-right font-weight-semibold align-middle p-4">{{row['valor']}}</td>
                             <form action="/finalizar" method="GET"><td class="align-middle p-4 qtd-btn">
                               <input type="number" name="{{index}}" class="form-control text-center" value="{{row['Quantidade']}}">
-                                <button type="submit">➕</button>
+                                <button type="submit" class="btn-chk">✅</button>
                             </form>
                           </td>
                           <td class="text-right font-weight-semibold align-middle p-4">{{row['total']}}</td>
-                          <td class="text-center align-middle px-0"><a href="produto_excluido/{{index}}" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">❌</a></td>
+                          <td class="text-center align-middle px-0"><a href="produto_excluido/{{index}}" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">❎</a></td>
                         </tr>          
                         {% endfor %} 
                       </tbody>
